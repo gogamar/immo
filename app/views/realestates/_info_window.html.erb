@@ -1,0 +1,5 @@
+<%= link_to realestate, class: "" do %>
+  <%= image_tag realestate.images.first.url, class: "img-fluid mx-auto", alt:"#{realestate.rstype} #{realestate.town}" %>
+  <p><%= realestate.title %></p>
+  <p><%= realestate.short_address %></p>
+<% end %>

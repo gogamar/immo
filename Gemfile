@@ -76,3 +76,13 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# added gems
+gem 'net-ftp'
+gem 'nokogiri'
+gem "geocoder"
+gem 'pagy', '~> 6.0' # omit patch digit
+gem "pg_search"
+gem 'rails-i18n'
+gem 'flag-icons-rails'
+gem "cloudinary"

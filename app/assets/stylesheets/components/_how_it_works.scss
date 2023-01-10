@@ -1,0 +1,105 @@
+/*------------------------------------------------------------
+	How it Work
+-------------------------------------------------------------*/
+.middle-icon-features {
+  display: table;
+  width: 100%;
+  text-align: center;
+}
+.middle-icon-features-item {
+  margin-top: 30px;
+}
+.middle-icon-large-features-box {
+  background: #ffffff;
+  width: 85px;
+  height: 85px;
+  line-height: 90px;
+  text-align: center;
+  transition: 0.25s ease-in-out;
+  font-size: 30px;
+  border-radius: 20px;
+  color: #fd5332;
+  margin: 15px auto;
+  position: relative;
+  border: 1px solid transparent;
+}
+.icon-features-wrap {
+  text-align: center;
+  position: relative;
+}
+.icon-features-wrap:before {
+  content: image-url("arrow.png");
+  position: absolute;
+  width: auto;
+  height: auto;
+  background: transparent;
+  left: 100%;
+  top: 40px;
+}
+.middle-icon-features-item.remove .icon-features-wrap:before {
+  display: none;
+}
+.middle-icon-features-content {
+  padding: 10px 30px 0;
+  text-align: center;
+}
+.middle-icon-features-content p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.middle-icon-features-content h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.middle-icon-large-features-box:before {
+  content: "";
+  position: absolute;
+  border-radius: 20px;
+  width: 85px;
+  height: 85px;
+  top: 0;
+  left: 0;
+  transform: rotate(45deg);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.middle-icon-large-features-box.f-light-warning:before {
+  background: rgba(255, 143, 0, 0.1);
+  border-color: rgba(255, 143, 0, 0.3);
+  color: #ff8f00 !important;
+}
+.middle-icon-large-features-box.f-light-success:before {
+  background: rgba(15, 202, 152, 0.1);
+  border-color: rgba(15, 202, 152, 0.3);
+  color: #29cf8d !important;
+}
+.middle-icon-large-features-box.f-light-blue:before {
+  color: #1d96ff !important;
+  background: rgba(29, 150, 255, 0.1);
+  border-color: rgba(29, 150, 255, 0.3);
+}
+.middle-icon-large-features-box.f-light-purple:before {
+  color: #fd5332 !important;
+  background: rgba(116, 96, 238, 0.1);
+  border-color: rgba(116, 96, 238, 0.3);
+}
+.middle-icon-large-features-box.f-light-purple:before {
+  color: #f33066 !important;
+  background: rgba(243, 48, 102, 0.1);
+  border-color: rgba(243, 48, 102, 0.3);
+}
+
+/*------------- Achievement & Partnership ------------------*/
+.achievement-wrap {
+  position: relative;
+  text-align: center;
+  display: block;
+  padding: 2rem 0 0;
+}
+.achievement-content h4 {
+  margin-bottom: 5px;
+  line-height: 1;
+  font-size: 28px;
+  color: #08184b;
+}

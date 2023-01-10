@@ -1,36 +1,86 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+            <!-- ============================================================== -->
+<!-- Top header  -->
+<!-- ============================================================== -->
+<!-- Start Navigation -->
+<div class="header header-transparent dark">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+    <nav id="navigation" class="navigation navigation-landscape">
+      <div class="nav-header">
+        <%= link_to root_path, class: "nav-brand" do %>
+          <%= image_tag "https://res.cloudinary.com/dlzusxobf/image/upload/v1665045942/FINQUES_SISTACH__Finques_nxoogg.png", class: "logo", alt: "Logo Sistach Finques" %>
+        <% end %>
+        <div class="nav-toggle"></div>
+      </div>
+      <div class="nav-menus-wrapper" style="transition-property: none;">
+        <ul class="nav-menu">
+          <li class="active"><a href="/">Inici</a>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+          <li><%= link_to "Immobles", realestates_path %>
           </li>
+          <li><a href="/lloguer-turistic">Lloguer turístic</a>
+          </li>
+          <li><a href="/sobre-nosaltres">Sobre nosaltres</a>
+          </li>
+          <li><a href="/nostres-serveis">Serveis</a>
+          </li>
+          <li><a href="/noticies">Noticies</a>
+          </li>
+          <li><a href="/contacte">Contacte</a>
+          </li>
+          <li><a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup"><Registrar-se></Registrar-se></a></li>
+        </ul>
+        <ul class="nav-menu nav-menu-social align-to-right">
+          <li>
+            <%= link_to new_realestate_path, class: "text-success" do %>
+              <i class="fas fa-house-circle-check"></i>
+              <span class="ms-1">Afegir immoble</span>
+            <% end %>
+          </li>
+          <% if user_signed_in? %>
+            <li><%= current_user.email %></li>
+          <% else %>
+            <li class="add-listing blue2">
+              <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login"><i class="fas fa-user"></i> Iniciar sessió</a>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% I18n.available_locales.each do |lang| %>
+              <% if I18n.locale === lang || params[:locale] === lang %>
+                <%= link_to url_for(locale: lang), class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+                  <% if lang === :ca %>
+                    <span class="flag-icon flag-icon-es-ca"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                  <% elsif lang === :en %>
+                    <span class="flag-icon flag-icon-gb"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                  <% elsif lang === :es %>
+                    <span class="flag-icon flag-icon-es"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                  <% elsif lang === :fr %>
+                    <span class="flag-icon flag-icon-fr"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to url_for(locale: :en), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-gb"> </span> English
+              <% end %>
+              <%= link_to url_for(locale: :ca), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-es-ca"> </span> Català
+              <% end %>
+              <%= link_to url_for(locale: :es), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-es"> </span> Español
+              <% end %>
+              <%= link_to url_for(locale: :fr), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-fr"> </span> Français
+              <% end %>
             </div>
           </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    </nav>
   </div>
 </div>
+<!-- End Navigation -->
+<div class="clearfix"></div>
+<!-- ============================================================== -->
+<!-- Top header  -->
+<!-- ============================================================== -->

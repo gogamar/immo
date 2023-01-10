@@ -1,0 +1,75 @@
+<!-- Single Property -->
+<div class="col-lg-12 col-md-12">
+  <div class="property-listing property-1">
+    <div class="listing-img-wrapper">
+      <div class="list-img-slide">
+        <div class="click">
+          <% realestate.images.each do |image| %>
+            <%= link_to realestate do %>
+              <div>
+                <img src="<%= image.url %>" class="img-fluid mx-auto" alt="<%= realestate.title %> foto" />
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="listing-content">
+      <div class="listing-detail-wrapper-box">
+        <div class="listing-detail-wrapper">
+          <div class="listing-short-detail">
+            <h4 class="listing-name"><a href="single-property-2.html"> <%= realestate.title || "#{realestate.rstype} a #{realestate.town.name}" %> </a></h4>
+            <span class="prt-types sale"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
+          </div>
+          <div class="list-price">
+            <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') %></h6>
+          </div>
+        </div>
+      </div>
+      <div class="price-features-wrapper">
+        <div class="list-fx-features">
+          <div class="listing-card-info-icon">
+            <div class="inc-fleat-icon"><i class="fas fa-bed"></i></div>
+            <%= realestate.features.find_by(name: "Nº de dormitorios").value %> hab.
+          </div>
+          <div class="listing-card-info-icon">
+            <div class="inc-fleat-icon"><i class="fas fa-bath"></i></div>
+            <%= realestate.features.find_by(name: "Nº de baños").value %> banys
+          </div>
+          <% if realestate.csurface.present? %>
+            <div class="listing-card-info-icon">
+              <div class="inc-fleat-icon">
+                <i class="fas fa-compress"></i>
+              </div>
+              <%= realestate.csurface.round %> m²
+            </div>
+          <% elsif realestate.usurface.present? %>
+            <div class="listing-card-info-icon">
+              <div class="inc-fleat-icon">
+                <i class="fas fa-compress"></i>
+              </div>
+              <%= realestate.usurface.round %> m²
+            </div>
+          <% end %>
+          <div class="listing-card-info-icon">
+            <div class="inc-fleat-icon"><i class="fas fa-hashtag"></i></div>
+            <%= realestate.reference %>
+          </div>
+        </div>
+      </div>
+      <div class="listing-footer-wrapper">
+        <div class="listing-locate">
+          <span class="listing-location">
+            <i class="fas fa-location-dot text-secondary"></i>
+            <span class="ms-1">
+              <%= realestate.short_address %>
+            </span>
+          </div>
+          <div class="listing-detail-btn">
+            <a href="single-property-2.html" class="more-btn">Més detalls</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Single Property End -->

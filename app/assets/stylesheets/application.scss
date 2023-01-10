@@ -6,7 +6,15 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flag-icon";
+@import "select2/dist/css/select2";
+@import "ion-rangeslider/css/ion.rangeSlider.css";
+@import "lightgallery/css/lightgallery.css";
+@import "magnific-popup/dist/magnific-popup.css";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+@import "bootstrap-icons/font/bootstrap-icons";
+@import "star-rating.js/dist/star-rating.css";
 
 // Your CSS partials
-@import "components/index";
 @import "pages/index";
+@import "components/index";

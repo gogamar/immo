@@ -1,0 +1,143 @@
+/*====================================
+ Bottom To top Scroll
+=====================================*/
+#back2Top {
+  width: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  z-index: 999;
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  background: #333c56;
+  color: #ffffff;
+}
+#back2Top:hover {
+  background-color: #ffffff;
+  color: #333c56;
+}
+
+.style-switcher {
+  position: fixed;
+  top: 35%;
+  transition: 0.4s ease-in-out;
+  background-color: #fff;
+  left: -220px;
+  width: 220px;
+  padding: 0;
+  z-index: 1010;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+}
+.style-switcher .css-trigger {
+  position: absolute;
+  top: 37%;
+  transform: translateY(-50%);
+  right: -50px;
+  width: 50px;
+  background-color: #2d4767;
+  color: #fff;
+  border-radius: 0px 3px 3px 0px;
+  text-align: center;
+  line-height: 55px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.style-switcher .css-trigger a {
+  color: #ffffff;
+}
+.style-switcher.active {
+  left: 0;
+}
+ul#themecolors {
+  margin: 0;
+  padding: 15px 0;
+  text-align: center;
+  background: #334e6f;
+}
+ul#themecolors li {
+  list-style: none;
+  padding: 5px;
+  display: inline-block;
+}
+ul#themecolors li a {
+  width: 35px;
+  height: 35px;
+  background: #f4f5f7;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 0;
+  border: 3px solid rgba(255, 255, 255, 1);
+}
+a.default-theme {
+  background: #fb7618 !important;
+}
+a.blue-theme {
+  background: #3a5bbc !important;
+}
+a.green-theme {
+  background: #28b446 !important;
+}
+a.red-theme {
+  background: #d32e2a !important;
+}
+a.purple-theme {
+  background: #9886ec !important;
+}
+a.yellow-theme {
+  background: #fbbb00 !important;
+}
+a.oceangreen-theme {
+  background: #00a877 !important;
+}
+a.goodred-theme {
+  background: #f40c43 !important;
+}
+a.goodgreen-theme {
+  background: #19b521 !important;
+}
+a.blue2-theme {
+  background: #0176ff !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .singles-dashboard-list {
+    display: block;
+    width: 100%;
+  }
+  .sd-list-left {
+    max-width: 100%;
+  }
+  .sd-list-right {
+    padding: 1rem 1rem;
+  }
+}
+
+/*------------ Design For Dropdown menu --------------*/
+.account-drop .dropdown-menu {
+  top: 81px !important;
+  right: 0 !important;
+  background: #fff;
+  box-shadow: none;
+  border: solid 1px #ebedf3;
+  min-width: 200px;
+  left: initial !important;
+  padding: 0;
+}
+.account-drop .dropdown-menu a {
+  border-bottom: 1px solid #e9ebf3;
+  padding: 1rem;
+  width: 100%;
+}
+.account-drop .dropdown-menu a i {
+  margin-right: 5px;
+}
+.account-drop .dropdown-menu a.active {
+  color: #0fca98;
+}

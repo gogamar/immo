@@ -1,0 +1,35 @@
+<%= simple_form_for(@realestate) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.input :idfile %>
+    <%= f.input :idagency %>
+    <%= f.input :rstype %>
+    <%= f.input :reference %>
+    <%# f.input :country %>
+    <%= f.input :speclocation %>
+    <%= f.input :typestreet %>
+    <%= f.input :namestreet %>
+    <%= f.input :numberstreet %>
+    <%= f.input :featured %>
+    <%= f.input :usurface %>
+    <%= f.input :csurface %>
+    <%= f.input :salesprice %>
+    <%= f.input :rentprice %>
+    <%= f.input :region %>
+    <%= f.input :province %>
+    <%= f.input :town %>
+    <%= f.input :postcode %>
+    <!-- Autocomplete for address -->
+    <%= f.input :address,
+      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+    %>
+    <%= f.input :area %>
+    <%= f.input :title %>
+    <%= f.input :ad %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-info" %>
+  </div>
+<% end %>

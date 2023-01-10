@@ -1,0 +1,94 @@
+                  <!-- Single Property -->
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="property-listing list_view style_new">
+
+                      <div class="listing-img-wrapper">
+                        <div class="_exlio_125"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></div>
+                        <div class="like_unlike_prt">
+                          <label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label>
+                        </div>
+                        <div class="list-img-slide">
+                          <div class="clior">
+                            <% realestate.images.each do |image| %>
+                              <%= link_to realestate do %>
+                                <div>
+                                    <img src="<%= image.url %>" class="img-fluid mx-auto" alt="<%= realestate.title %> foto" />
+                                </div>
+                              <% end %>
+                            <% end %>
+                            <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                            <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="list_view_flex">
+
+                        <div class="listing-detail-wrapper mt-1">
+                          <div class="listing-short-detail-wrap">
+                            <div class="_card_list_flex mb-2">
+                              <div class="_card_flex_01">
+                                <span class="_list_blickes _netork">Destacat</span>
+                                <span class="_list_blickes types">Families</span>
+                              </div>
+                              <div class="_card_flex_last">
+                                <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') if realestate.salesprice.present? || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') if realestate.rentprice.present? %></h6>
+                              </div>
+                            </div>
+                            <div class="_card_list_flex">
+                              <div class="_card_flex_01">
+                                <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail"><%= realestate.short_address %></a></h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="price-features-wrapper">
+                          <div class="list-fx-features">
+                            <div class="listing-card-info-icon">
+                              <div class="inc-fleat-icon"><i class="fas fa-bed"></i></div>
+                              <%= realestate.features.find_by(name: "Nº de dormitorios").value if realestate.features.find_by(name: "Nº de dormitorios").present? %> hab.
+                            </div>
+                            <div class="listing-card-info-icon">
+                              <div class="inc-fleat-icon"><i class="fas fa-bath"></i></div>
+                              <%= realestate.features.find_by(name: "Nº de baños").value if realestate.features.find_by(name: "Nº de baños").present? %> banys
+                            </div>
+                            <% if realestate.csurface.present? %>
+                              <div class="listing-card-info-icon">
+                                <div class="inc-fleat-icon">
+                                <i class="fas fa-compress"></i>
+                                </div>
+                                <%= realestate.csurface.round %> m²
+                              </div>
+                            <% elsif realestate.usurface.present? %>
+                              <div class="listing-card-info-icon">
+                                <div class="inc-fleat-icon">
+                                <i class="fas fa-compress"></i>
+                                </div>
+                                <%= realestate.usurface.round %> m²
+                              </div>
+                            <% end %>
+                          </div>
+                        </div>
+
+                        <div class="listing-detail-footer pl-0">
+                          <div class="footer-first">
+                            <div class="listing-features-info">
+                              <ul class="featur_5269">
+                                <li><div class="ft_th" data-bs-toggle="tooltip" data-bs-placement="top" title="Pet Allowed"><img src="assets/img/pet.svg" alt="" /></div></li>
+                                <li><div class="ft_th" data-bs-toggle="tooltip" data-bs-placement="top" title="Air Conditions"><img src="assets/img/cooling.svg" alt="" /></div></li>
+                                <li><div class="ft_th" data-bs-toggle="tooltip" data-bs-placement="top" title="Wifi Avaialable"><img src="assets/img/wifi.svg" alt="" /></div></li>
+                                <li><div class="ft_th" data-bs-toggle="tooltip" data-bs-placement="top" title="Gym Center"><img src="assets/img/gym.svg" alt="" /></div></li>
+                                <li><div class="ft_th" data-bs-toggle="tooltip" data-bs-placement="top" title="Car Parking"><img src="assets/img/car.svg" alt="" /></div></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="footer-flex">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#availability" class="prt-view theme-bg small">Contacta-n's</a>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- End Single Property -->

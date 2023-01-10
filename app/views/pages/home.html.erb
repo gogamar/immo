@@ -1,2 +1,336 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- ============================ Hero Banner  Start================================== -->
+<div class="hero-banner video-banner">
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="https://res.cloudinary.com/dlzusxobf/video/upload/v1671547748/Verde_Playas_Viajes_y_Eventos_Cierre_Vi%CC%81deo_de_YouTube_swjmew.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-md-11 col-sm-12">
+        <div class="inner-banner-text text-center">
+          <p class="lead-i text-white">Cerca propietats en venda i lloguer a Catalunya <span class="badge badge-success">Veure tot</span></p>
+          <h2><span class="font-normal text-white">Troba la casa</span> que t'espera.</h2>
+        </div>
+        <div class="full-search-2 eclip-search italian-search hero-search-radius shadow-hard mt-5">
+          <div class="hero-search-content">
+            <div class="row">
+              <%= form_with url: realestates_path, method: :get, class: "d-flex" do |form| %>
+                <div class="col-lg-6 col-md-6 col-sm-12 b-r">
+                  <div class="form-group">
+                    <div class="choose-propert-type">
+                      <ul>
+                        <li>
+                          <input id="cp-1" class="checkbox-custom" name="op" type="radio" value="Comprar" checked>
+                          <label for="cp-1" class="checkbox-custom-label">Comprar</label>
+                        </li>
+                        <li>
+                          <input id="cp-2" class="checkbox-custom" name="op" type="radio" value="Llogar">
+                          <label for="cp-2" class="checkbox-custom-label">Llogar</label>
+                        </li>
+                        <li>
+                          <input id="cp-3" class="checkbox-custom" name="op" type="radio"  value="Vacances">
+                          <label for="cp-3" class="checkbox-custom-label">Vacances</label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-12 p-0 elio">
+                  <div class="form-group mb-2">
+                    <div class="input-with-icon">
+                      <select name="m" id="town" class="form-control">
+                        <option value="">&nbsp;</option>
+                        <% @town_names.each do |town| %>
+                          <option value="<%= town %>"><%= town %></option>
+                        <% end %>
+                      </select>
+                      <i class="fas fa-location-dot"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <button type="submit" class="btn search-btn black" data-turbo="false">Cercar</button>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ============================ Hero Banner End ================================== -->
+<!-- ================= Explore Property ================= -->
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-10 text-center">
+        <div class="sec-heading center">
+          <h2>Immobles Destacats</h2>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Featured Properties -->
+      <% @featured_realestates.each do |realestate| %>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="property-listing property-2">
+            <div class="listing-img-wrapper">
+              <div class="list-img-slide">
+                <div class="click">
+                  <% realestate.images.each do |image| %>
+                    <%= link_to realestate do %>
+                      <div>
+                        <img src="<%= image.url %>" class="img-fluid mx-auto" alt="<%= realestate.title %> foto" />
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <%= link_to realestate do %>
+              <div class="listing-detail-wrapper">
+                <div class="listing-short-detail-wrap">
+                  <div class="listing-short-detail">
+                    <span class="property-type"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
+                  </div>
+                  <div class="listing-short-detail-flex">
+                    <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') %></h6>
+                  </div>
+                </div>
+              </div>
+              <div class="listing-detail-wrapper">
+                <h4 class="listing-name verified">
+                  <%= realestate.title || "#{realestate.rstype} a #{realestate.town}" %>
+                </h4>
+              </div>
+              <div class="price-features-wrapper">
+                <div class="list-fx-features">
+                  <div class="listing-card-info-icon">
+                    <div class="inc-fleat-icon">
+                      <i class="fas fa-bed"></i>
+                    </div>
+                    <%= realestate.features.find_by(name: "Nº de dormitorios").value %> hab.
+                  </div>
+                  <div class="listing-card-info-icon">
+                    <div class="inc-fleat-icon">
+                      <i class="fas fa-bath"></i>
+                    </div>
+                    <%= realestate.features.find_by(name: "Nº de baños").value %> banys
+                  </div>
+                  <% if realestate.csurface.present? %>
+                    <div class="listing-card-info-icon">
+                      <div class="inc-fleat-icon">
+                        <i class="fas fa-compress"></i>
+                      </div>
+                      <%= realestate.csurface.round %> m²
+                    </div>
+                  <% elsif realestate.usurface.present? %>
+                    <div class="listing-card-info-icon">
+                      <div class="inc-fleat-icon">
+                        <i class="fas fa-compress"></i>
+                      </div>
+                      <%= realestate.usurface.round %> m²
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <div class="listing-detail-footer">
+              <div class="footer-first">
+                <div class="foot-location">
+                  <i class="fas fa-location-dot text-secondary"></i>
+                  <span class="ms-1">
+                    <%= realestate.short_address %>
+                  </span>
+                </div>
+              </div>
+              <div class="footer-flex">
+                <%= link_to "Més detalls", realestate, class: "prt-view" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- End Featured Properties-->
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light-2 rounded">Veure més immobles</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================================= Explore Property =============================== -->
+<!-- ============================ Property Location Start ================================== -->
+<section class="bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-10 text-center">
+        <div class="sec-heading center">
+          <h2>Buscar per ubicació</h2>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <% @all_towns.each do |town| %>
+        <div class="col-lg-4 col-md-4">
+          <div class="location-property-wrap">
+            <div class="location-property-thumb">
+              <% if town.photo.attached? %>
+                <a href="listings-list-with-sidebar.html"> <img src="<%= cl_image_path town.photo.key, height: 236, crop: :fill %>" class="image-fluid" alt="<%= town.name %>">
+                </a>
+              <% else %>
+                <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+              <% end %>
+            </div>
+            <div class="location-property-content">
+              <div class="lp-content-flex">
+                <h4 class="lp-content-title"><%= town.name %></h4>
+                <%= town.name %>
+                <% if town.realestates.count == 1 %>
+                  <span> <%= town.realestates.count %> immoble </span>
+                <% else %>
+                  <span> <%= town.realestates.count %> immobles </span>
+                <% end %>
+              </div>
+              <div class="lp-content-right">
+                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="fa-solid fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light rounded">Browse More Locations</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================ Property Location End ================================== -->
+<!-- ============================ Smart Testimonials ================================== -->
+<section class="bg-orange">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-10 text-center">
+        <div class="sec-heading center">
+          <h2>Good Reviews by Customers</h2>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-12">
+        <div class="smart-textimonials smart-center" id="smart-textimonials">
+          <!-- Single Item -->
+          <div class="item">
+            <div class="item-box">
+              <div class="smart-tes-author">
+                <div class="st-author-box">
+                  <div class="st-author-thumb">
+                    <div class="quotes bg-blue"><i class="ti-quote-right"></i></div>
+                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="smart-tes-content">
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              </div>
+              <div class="st-author-info">
+                <h4 class="st-author-title">Adam Williams</h4>
+                <span class="st-author-subtitle">CEO Of Microwoft</span>
+              </div>
+            </div>
+          </div>
+          <!-- Single Item -->
+          <div class="item">
+            <div class="item-box">
+              <div class="smart-tes-author">
+                <div class="st-author-box">
+                  <div class="st-author-thumb">
+                    <div class="quotes bg-inverse"><i class="ti-quote-right"></i></div>
+                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="smart-tes-content">
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              </div>
+              <div class="st-author-info">
+                <h4 class="st-author-title">Retha Deowalim</h4>
+                <span class="st-author-subtitle">CEO Of Apple</span>
+              </div>
+            </div>
+          </div>
+          <!-- Single Item -->
+          <div class="item">
+            <div class="item-box">
+              <div class="smart-tes-author">
+                <div class="st-author-box">
+                  <div class="st-author-thumb">
+                    <div class="quotes bg-purple"><i class="ti-quote-right"></i></div>
+                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="smart-tes-content">
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              </div>
+              <div class="st-author-info">
+                <h4 class="st-author-title">Sam J. Wasim</h4>
+                <span class="st-author-subtitle">Pio Founder</span>
+              </div>
+            </div>
+          </div>
+          <!-- Single Item -->
+          <div class="item">
+            <div class="item-box">
+              <div class="smart-tes-author">
+                <div class="st-author-box">
+                  <div class="st-author-thumb">
+                    <div class="quotes bg-primary"><i class="ti-quote-right"></i></div>
+                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="smart-tes-content">
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              </div>
+              <div class="st-author-info">
+                <h4 class="st-author-title">Usan Gulwarm</h4>
+                <span class="st-author-subtitle">CEO Of Facewarm</span>
+              </div>
+            </div>
+          </div>
+          <!-- Single Item -->
+          <div class="item">
+            <div class="item-box">
+              <div class="smart-tes-author">
+                <div class="st-author-box">
+                  <div class="st-author-thumb">
+                    <div class="quotes bg-success"><i class="ti-quote-right"></i></div>
+                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="smart-tes-content">
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+              </div>
+              <div class="st-author-info">
+                <h4 class="st-author-title">Shilpa Shethy</h4>
+                <span class="st-author-subtitle">CEO Of Zapple</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================ Smart Testimonials End ================================== -->

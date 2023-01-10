@@ -1,0 +1,413 @@
+ca:
+  locale: "Català"
+  salesprice: "preu"
+  ca: "català"
+  en: "anglès"
+  es: "castellà"
+  fr: "francès"
+  real estate: "Immobiliària"
+  vacation rentals: "Lloguer turístic"
+  page: "Pàgina"
+  of: "de"
+  nights: "nits"
+  from: "Des de"
+  to: "Fins a"
+  arrival_day: "Dia entrada"
+  min: "Min."
+  week: "Setmana"
+  night_7: "Nit (7)"
+  night_5: "Nit (5-6)"
+  washer: "rentadora"
+  oven: "forn"
+  toaster: "torradora"
+  microwave: "microones"
+  hair_dryer: "secador de cabells"
+  iron_board: "planxa"
+  garden: "jardí comunitari"
+  wifi: "wifi"
+  refrigerator: "nevera"
+  grill: "barbacoa"
+  ocean_view: "vista al mar"
+  dishwasher: "rentaplats"
+  pool_private: "piscina privada"
+  pets_considered: "s'accepten mascotes"
+  air_conditioning: "aire acondicionat"
+  freezer: "congelador"
+  elevator: "ascensor"
+  beach_view: "vista a la platja"
+  private_yard: "jardí privat"
+  smoke_detector: "detector de fum"
+  pets_not_allowed: "no s'accepten mascotes"
+  balcony: "balcó"
+  parking_included: "parking inclòs"
+  parking_possible: "parking possible al carrer"
+  deck_patio_uncovered: "terrassa"
+  kettle: "bullidor d'aigua"
+  beach_front: "primera línia del mar"
+  pool: "piscina comunitària"
+  coffee_maker: "cafetera"
+  roof_terrace: "terrassa comunitària"
+  tv: "TV"
+  fireplace: "xemeneia"
+  ceiling_fan: "ventilador del sostre"
+  inactive: "Immoble inactiu"
+  proposal: "Proposta enviada"
+  not sent: "No enviat"
+  active: "Immoble actiu"
+  pending: "pendent de firma"
+  signed: "signat"
+  saturdays: "Ds.-Ds."
+  everyday: "Qualsevol dia"
+  registry_addendum: "Nota Simple Informativa de l’habitatge objecte del present contracte"
+  habitability_addendum: "Còpia de la cèdula d’habitabilitat"
+  energy_addendum: "Certificat Energètic"
+  equipment_addendum: "Equipament"
+  date:
+    abbr_day_names:
+      - Dg
+      - Dl
+      - Dm
+      - Dc
+      - Dj
+      - Dv
+      - Ds
+    abbr_month_names:
+      -
+      - Gen
+      - Feb
+      - Mar
+      - Abr
+      - Mai
+      - Jun
+      - Jul
+      - Ago
+      - Set
+      - Oct
+      - Nov
+      - Des
+    day_names:
+      - Diumenge
+      - Dilluns
+      - Dimarts
+      - Dimecres
+      - Dijous
+      - Divendres
+      - Dissabte
+    formats:
+      default: "%d-%m-%Y"
+      long: "%a, %d de %b de %Y"
+      short: "%d de %b"
+    month_names:
+      -
+      - Gener
+      - Febrer
+      - Març
+      - Abril
+      - Maig
+      - Juny
+      - Juliol
+      - Agost
+      - Setembre
+      - Octubre
+      - Novembre
+      - Desembre
+    order:
+      - :day
+      - :month
+      - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadament 1 hora
+        other: aproximadament %{count} hores
+      about_x_months:
+        one: aproximadament 1 mes
+        other: aproximadament %{count} mesos
+      about_x_years:
+        one: aproximadament 1 any
+        other: aproximadament %{count} anys
+      almost_x_years:
+        one: quasi 1 any
+        other: quasi %{count} anys
+      half_a_minute: mig minut
+      less_than_x_seconds:
+        one: menys d'1 segon
+        other: menys de %{count} segons
+      less_than_x_minutes:
+        one: menys d'1 minut
+        other: menys de %{count} minuts
+      over_x_years:
+        one: més d'1 any
+        other: més de %{count} anys
+      x_seconds:
+        one: 1 segon
+        other: "%{count} segons"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minuts"
+      x_days:
+        one: 1 dia
+        other: "%{count} dies"
+      x_months:
+        one: 1 mes
+        other: "%{count} mesos"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+    prompts:
+      second: segon
+      minute: minut
+      hour: hora
+      day: dia
+      month: mes
+      year: any
+  hello: "Hola"
+  welcome: "Benvinguts!"
+  services_html: "Donem uns <em>serveis magnifics</em>"
+  create_profile: "Crea un perfil"
+  pages:
+    home:
+      hello: "Hola mòn"
+      welcome: "Benvinguts!"
+      services_html: "Donem uns <em>serveis magnifics</em>"
+  features:
+    form:
+      washer: "rentadora"
+  vrentals:
+    show:
+      saturdays: "Ds.-Ds."
+      everyday: "Qualsevol dia"
+    form:
+      labels:
+        washer: "rentadora"
+    form:
+      dishwasher: "rentaplats"
+      name:
+        washer: "rentadora"
+  rates:
+    index:
+      saturdays: "Ds.-Ds."
+      everyday: "Qualsevol dia"
+  vragreements:
+    form:
+      vrowner_bookings: "El propietari encara no ha bloquejat cap data per al seu propi ús. Si vol bloquejar algunes dates, si us plau contacti amb nosaltres a info@sistachrentals.com."
+  vrentaltemplates:
+    form:
+      ca: "Català"
+      es: "Castellà"
+      fr: "Francès"
+      en: "Anglès"
+  # activerecord:
+  #   attributes:
+  #     rentals:
+  #     owner_html: "Seleccionar el propietari o #{link_to 'Afegir propietari nou', new_owner_path, target: "_blank"}."
+  #     address: 'Adreça, codi postal i municipi'
+  #   global:
+  #     forms:
+  #       submit: Desar
+  activerecord:
+    attributes:
+      realestate:
+        salesprice: "preu"
+        status: "Estat"
+        address: "Adreça"
+        city: "Municipi"
+        description: "Descripció de la finca (del registre de propietat)"
+        seller: "Venedor"
+        cadastre: "Ref. Cadastral"
+        energy: "Cert. energètic"
+        registrar: "Oficina Registre"
+        volume: "Tom"
+        book: "Llibre"
+        sheet: "Foli"
+        registry: "Finca registral número"
+        registry_code: "Codi Registre CRU"
+        entry: "Inscripció"
+        charges: "Càrregues i gravemens"
+        habitability: "Cédula habitabilitat"
+        hab_date: "Data cédula habitabilitat"
+        protocol: "Protocol Escriptura"
+        deed_date: "Data Escriptura"
+        notary: "Notaria Escriptura"
+        notary_fullname: "Nom del notari"
+        mortgage_bank: "Banc on ténen l'hipoteca"
+        mortgage_amount: "Import de l'hipoteca"
+      task:
+        start_date: "Data d'inici"
+        start_time: "Hora d'inici"
+        title: "Tema"
+      comtype:
+        company_type: "Tipus d'empresa"
+      buyer:
+        fullname: "Nom i cognoms"
+        address: "Adreça"
+        phone: "Telèfon"
+        email: "Email"
+        document: "DNI"
+        account: "Compte bancari"
+        account_bank: "Banc"
+        language: "Idioma"
+      seller:
+        fullname: "Nom i cognoms"
+        address: "Adreça"
+        phone: "Telèfon"
+        email: "Email"
+        document: "DNI"
+        account: "Compte bancari"
+        account_bank: "Banc"
+        language: "Idioma"
+      rental:
+        owner: "Propietari"
+        address: "Adreça"
+        city: "Municipi"
+        cadastre: "Cadastre"
+        energy: "Certificat d'eficiencia energètica"
+        description: "Descripció"
+        status: "Estat"
+      profile:
+        comtype_id: "Tipus d'empresa"
+        comtype: "Tipus d'empresa"
+        aicat: "Número AICAT"
+        api: "Número API"
+      profile_session:
+        new:
+          profile: "Crear perfil"
+        city: "Municipi"
+        cadastre: "Cadastre"
+        energy: "Certificat d'eficiencia energètica"
+        description: "Descripció"
+      vrowner:
+        vrowner: "Propietari"
+        fullname: "Nom i cognoms"
+        address: "Adreça"
+        phone: "Telèfon"
+        email: "Email"
+        document: "DNI"
+        account: "Compte bancari"
+        language: "Idioma"
+      owner:
+        owner: "Propietari"
+        fullname: "Nom i cognoms"
+        address: "Adreça"
+        phone: "Telèfon"
+        email: "Email"
+        document: "DNI"
+        account: "Compte bancari"
+        language: "Idioma"
+      renter:
+        renter: "Propietari"
+        fullname: "Nom i cognoms"
+        address: "Adreça"
+        phone: "Telèfon"
+        email: "Email"
+        document: "DNI"
+        account: "Compte bancari"
+        language: "Idioma"
+      vragreement:
+        status: "Estat"
+        vrowner: "Propietari"
+        vrental: "Casa o apartament"
+        phone: "Telèfon"
+        email: "Email"
+        account: "Compte bancari"
+        vrowner_bookings: "Reserves per el propietari"
+        signdate: "Data firma"
+        start_date: "Inici contracte"
+        end_date: "Fi contracte"
+        year: "Any contracte"
+      contract:
+        contentarea: "Clausula adicional"
+        signdate: "Data de la firma"
+        price: "Preu immoble"
+        pricetext: "Preu immoble (lletres)"
+        down_payment: "Import Arres"
+        down_payment_text: "Import Arres (lletres)"
+        dp_part1: "Arres 1er pagament"
+        dp_part1_text: "Arres 1er pag (lletres)"
+        dp_part2: "Arres 2on pagament"
+        dp_part2_text: "Arres 2on pag. (lletres)"
+        signdate_notary: "Data firma notaría"
+        min_notice: "Mínim preavís"
+        court: "Jutjat"
+        registry_addendum: "Annex: Nota Simple"
+        habitability_addendum: "Annex: Cèdula d’habitabilitat"
+        energy_addendum: "Annex: Certificat Energètic"
+        equipment_addendum: "Annex: Equipament"
+      rstemplate:
+        title: "Títol"
+        language: "Idioma"
+      agreement:
+        owner: "Propietari"
+        rental: "Casa o apartament"
+        phone: "Telèfon"
+        email: "Email"
+        account: "Compte bancari"
+        signdate: "Data de la firma"
+        start_date: "Inici contracte"
+        end_date: "Fi contracte"
+        price: "Preu lloguer"
+        pricetext: "Preu lloguer (lletres)"
+        deposit: "Fiança"
+        contentarea: "Clausula especial"
+        duration: "Durada"
+      vrental:
+        vrowner: "Propietari"
+        address: "Adreça"
+        habitability: "Cédula de habitabilitat"
+        cadastre: "Cadastre"
+        licence: "Número HUT"
+        description: "Descripció"
+        feature_ids: "Caracteristiques"
+        name: "Nom"
+        status: "Estat"
+      rate:
+        firstnight: "Des de"
+        lastnight: "Fins a"
+        min_stay: "Min."
+        priceweek: "Preu setmana"
+        pricenight: "Preu nit"
+        arrival_day: "Dia entrada"
+      vrentaltemplate:
+        language: "Idioma"
+        title: "Títol"
+      feature:
+        name:
+          washer: "rentadora"
+  global:
+    forms:
+      submit: "Desar"
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+    week: "setmana"
+    month: "mes"
+    year: "any"
+    day: "dia"
+  realestates:
+    show:
+      status: "Estat"
+      address: "Adreça"
+      city: "Municipi"
+      description: "Descripció de la finca (del registre de propietat)"
+      seller: "Venedor"
+      cadastre: "Ref. Cadastral"
+      energy: "Cert. energètic"
+      registrar: "Oficina Registre"
+      volume: "Tom"
+      book: "Llibre"
+      sheet: "Foli"
+      registry: "Finca registral número"
+      registry_code: "Codi Registre CRU"
+      entry: "Inscripció"
+      charges: "Càrregues i gravemens"
+      habitability: "Cédula habitabilitat"
+      hab_date: "Data cédula habitabilitat"
+      protocol: "Protocol Escriptura"
+      deed_date: "Data Escriptura"
+      notary: "Notaria Escriptura"
+      notary_fullname: "Nom del notari"
+      mortgage_bank: "Banc on ténen l'hipoteca"
+      mortgage_amount: "Import de l'hipoteca"
+      registry_addendum: "Annex 1: Nota Simple"
+      habitability_addendum: "Annex 2: Cèdula d’habitabilitat"
+      energy_addendum: "Annex 3: Certificat Energètic"

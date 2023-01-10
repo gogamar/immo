@@ -1,16 +1,27 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+/*------------------------------------
+	Fonts
+------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700");
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Muli", "Helvetica", "sans-serif";
+$headers-font: "Jost", "Helvetica", "sans-serif";
+
+@font-face {
+  font-family: "bootstrap-icons";
+  src: font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff2")
+      format("woff2"),
+    font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
+//   font-family: "themify";
+//   src: font-url("themify.eot");
+//   src: font-url("themify.eot?#iefix") format("embedded-opentype"),
+//     font-url("themify.woff") format("woff"),
+//     font-url("themify.ttf") format("truetype"),
+//     font-url("themify.svg") format("svg");
 // }
-// $my-font: "Font Name";
