@@ -195,29 +195,27 @@
                                   <div class="card-body pt-0">
                                     <div class="row">
                                       <%# TEST %>
-                                      <div class="col-lg-6 col-md-6 col-sm-12 p-0 elio">
+                                      <div class="col-lg-6 col-md-6 col-sm-12 p-2 elio">
                                         <div class="form-group mb-2">
                                           <div class="input-with-icon">
-                                            <select name="m" id="minprice" class="form-control">
+                                            <select name="min" id="minprice" class="form-control">
                                               <option value="">&nbsp;</option>
                                               <% @salesprices_array.each do |sp| %>
                                                 <option value="<%= sp %>"><%= sp %></option>
                                               <% end %>
                                             </select>
-                                            <i class="fas fa-location-dot"></i>
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="col-lg-6 col-md-6 col-sm-12 p-0 elio">
+                                      <div class="col-lg-6 col-md-6 col-sm-12 p-2 elio">
                                         <div class="form-group mb-2">
                                           <div class="input-with-icon">
-                                            <select name="m" id="maxprice" class="form-control">
+                                            <select name="max" id="maxprice" class="form-control">
                                               <option value="">&nbsp;</option>
                                               <% @salesprices_array.each do |sp| %>
                                                 <option value="<%= sp %>"><%= sp %></option>
                                               <% end %>
                                             </select>
-                                            <i class="fas fa-location-dot"></i>
                                           </div>
                                         </div>
                                       </div>
@@ -235,6 +233,10 @@
                             <button type="submit" class="btn btn btn-theme-light-2 rounded full-width">Cercar</button>
                           </div>
                           <!-- End Button Filter -->
+                          <%= Realestate.last.salesprice - params[:min].to_i %>
+                          <%= params[:min].class %>
+                          <%= Realestate.last.salesprice %>
+                          <%= params[:min].present? & params[:max].present? %>
                         </div>
                       <% end %>
                     </div>
@@ -316,7 +318,7 @@
                                 <% params.except(:action, :controller, :locale, :column, :direction, :page).each do |key, value| %>
                                   <div class="slt_single_item">
                                     <%= link_to request.params.except(key.to_sym), class: "remove_pills" do %>
-                                      <span class="pills_tex"><%= value %></span>
+                                      <span class="pills_tex"><%= key if key == "min" || key == "max" %> <%= value %></span>
                                       <span class="remove_cross"></span>
                                     <% end %>
                                   </div>

@@ -1,11 +1,6 @@
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-xs-4">
-      <%= simple_form_for(@review, data: { controller: "form-submit" }) do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Valora la teva experiencia", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}} %>
-        <%= f.submit "Enviar comentari", class: "d-none" %>
-      <% end %>
-    </div>
-  </div>
+<h4 class="text-center">Nou comentari</h4>
+<%= render "form", review: @review %>
+<br>
+<div>
+  <%= link_to "Tots els comentaris", reviews_path, class: "link"  %>
 </div>

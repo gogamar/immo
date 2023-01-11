@@ -1,10 +1,7 @@
-<h1>Editing review</h1>
-
+<h4 class="text-center">Modificar comentari</h4>
 <%= render "form", review: @review %>
-
 <br>
-
 <div>
-  <%= link_to "Show this review", @review %> |
-  <%= link_to "Back to reviews", reviews_path %>
+  <%= link_to "Mostrar aquest comentari", @review, class: "link" %> |
+  <%= link_to "Tots els comentaris", reviews_path, class: "link"  %>
 </div>
