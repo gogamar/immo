@@ -37,7 +37,14 @@ class RealestatesController < ApplicationController
     #   @all_realestates = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%"))
     # elsif params[:column].present?
     #   @all_realestates = @all_realestates.order("#{params[:column]} #{params[:direction]}")
+    elsif params[:min].present? & params[:max].present?
+      @all_realestates = @all_realestates.where('salesprice >= ?', params[:min].to_i).where('salesprice <= ?', params[:max].to_i)
+    elsif params[:min].present?
+      @all_realestates = @all_realestates.where('salesprice >= ?', params[:min].to_i)
+    elsif params[:max].present?
+      @all_realestates = @all_realestates.where('salesprice <= ?', params[:max].to_i)
     end
+
     @all_realestates = @all_realestates.order("#{params[:column]} #{params[:direction]}")
     @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 5) if @all_realestates
     @towns = @all_realestates.map {|rs| rs.town.name}.uniq if @all_realestates

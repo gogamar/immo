@@ -220,7 +220,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-md-10 text-center">
         <div class="sec-heading center">
-          <h2>Good Reviews by Customers</h2>
+          <h2>Comentaris dels nostres clients</h2>
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
         </div>
       </div>
@@ -228,106 +228,31 @@
     <div class="row justify-content-center">
       <div class="col-lg-12 col-md-12">
         <div class="smart-textimonials smart-center" id="smart-textimonials">
-          <!-- Single Item -->
-          <div class="item">
-            <div class="item-box">
-              <div class="smart-tes-author">
-                <div class="st-author-box">
-                  <div class="st-author-thumb">
-                    <div class="quotes bg-blue"><i class="ti-quote-right"></i></div>
-                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
+          <% @reviews.each do |review| %>
+            <!-- Single Item -->
+            <div class="item">
+              <div class="item-box">
+                <div class="smart-tes-author">
+                  <div class="st-author-box">
+                    <div class="st-stars">
+                      <% review.rating.times do %>
+                        <i class="fas fa-star yellow-icon"></i>
+                      <% end %>
+                      <% (5 - review.rating).times do %>
+                        <i class="far fa-star yellow-icon"></i>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="smart-tes-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-              </div>
-              <div class="st-author-info">
-                <h4 class="st-author-title">Adam Williams</h4>
-                <span class="st-author-subtitle">CEO Of Microwoft</span>
-              </div>
-            </div>
-          </div>
-          <!-- Single Item -->
-          <div class="item">
-            <div class="item-box">
-              <div class="smart-tes-author">
-                <div class="st-author-box">
-                  <div class="st-author-thumb">
-                    <div class="quotes bg-inverse"><i class="ti-quote-right"></i></div>
-                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
-                  </div>
+                <div class="smart-tes-content">
+                  <p><%= review.content %></p>
+                </div>
+                <div class="st-author-info">
+                  <h4 class="st-author-title"><%= review.author %></h4>
                 </div>
               </div>
-              <div class="smart-tes-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-              </div>
-              <div class="st-author-info">
-                <h4 class="st-author-title">Retha Deowalim</h4>
-                <span class="st-author-subtitle">CEO Of Apple</span>
-              </div>
             </div>
-          </div>
-          <!-- Single Item -->
-          <div class="item">
-            <div class="item-box">
-              <div class="smart-tes-author">
-                <div class="st-author-box">
-                  <div class="st-author-thumb">
-                    <div class="quotes bg-purple"><i class="ti-quote-right"></i></div>
-                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="smart-tes-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-              </div>
-              <div class="st-author-info">
-                <h4 class="st-author-title">Sam J. Wasim</h4>
-                <span class="st-author-subtitle">Pio Founder</span>
-              </div>
-            </div>
-          </div>
-          <!-- Single Item -->
-          <div class="item">
-            <div class="item-box">
-              <div class="smart-tes-author">
-                <div class="st-author-box">
-                  <div class="st-author-thumb">
-                    <div class="quotes bg-primary"><i class="ti-quote-right"></i></div>
-                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="smart-tes-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-              </div>
-              <div class="st-author-info">
-                <h4 class="st-author-title">Usan Gulwarm</h4>
-                <span class="st-author-subtitle">CEO Of Facewarm</span>
-              </div>
-            </div>
-          </div>
-          <!-- Single Item -->
-          <div class="item">
-            <div class="item-box">
-              <div class="smart-tes-author">
-                <div class="st-author-box">
-                  <div class="st-author-thumb">
-                    <div class="quotes bg-success"><i class="ti-quote-right"></i></div>
-                    <img src="https://via.placeholder.com/400x400" class="img-fluid" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="smart-tes-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-              </div>
-              <div class="st-author-info">
-                <h4 class="st-author-title">Shilpa Shethy</h4>
-                <span class="st-author-subtitle">CEO Of Zapple</span>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
