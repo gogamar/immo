@@ -1,5 +1,3 @@
-require 'net/ftp'
-require 'nokogiri'
 
 # Create a new FTP client object by calling Net::FTP.new and passing in the hostname and port number of the FTP server. You may also need to provide a username and password if the FTP server requires authentication.
 # ftp = Net::FTP.new('ftp.ghestia.cat', 21)
@@ -169,3 +167,4 @@ end
 #   rs.save!
 # end
 # puts "Done!"
+=======
