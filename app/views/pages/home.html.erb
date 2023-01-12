@@ -109,18 +109,22 @@
               </div>
               <div class="price-features-wrapper">
                 <div class="list-fx-features">
-                  <div class="listing-card-info-icon">
-                    <div class="inc-fleat-icon">
-                      <i class="fas fa-bed"></i>
+                  <% if realestate.features.find_by(name: "Nº de dormitorios").present? %>
+                    <div class="listing-card-info-icon">
+                      <div class="inc-fleat-icon">
+                        <i class="fas fa-bed"></i>
+                      </div>
+                      <%= realestate.features.find_by(name: "Nº de dormitorios").value  %> hab.
                     </div>
-                    <%= realestate.features.find_by(name: "Nº de dormitorios").value %> hab.
-                  </div>
-                  <div class="listing-card-info-icon">
-                    <div class="inc-fleat-icon">
-                      <i class="fas fa-bath"></i>
+                  <% end %>
+                  <% if realestate.features.find_by(name: "Nº de baños").present? %>
+                    <div class="listing-card-info-icon">
+                      <div class="inc-fleat-icon">
+                        <i class="fas fa-bath"></i>
+                      </div>
+                      <%= realestate.features.find_by(name: "Nº de baños").value  %> banys
                     </div>
-                    <%= realestate.features.find_by(name: "Nº de baños").value %> banys
-                  </div>
+                  <% end %>
                   <% if realestate.csurface.present? %>
                     <div class="listing-card-info-icon">
                       <div class="inc-fleat-icon">

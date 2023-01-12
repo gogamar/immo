@@ -17,6 +17,7 @@ class Realestate < ApplicationRecord
   scope :filter_by_rstype, -> (pvalues) { where(rstype: pvalues) }
   scope :filter_by_min, -> (min) { where('salesprice >= ?', min.to_i) }
   scope :filter_by_max, -> (max) { where('salesprice <= ?', max.to_i) }
+  scope :filter_by_bedrooms, -> (bedroom_features) { where(id: bedroom_features)}
 
 
   def set_address
