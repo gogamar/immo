@@ -16,34 +16,15 @@ class RealestatesController < ApplicationController
 
     @all_operations = [ "Comprar", "Llogar", "Vacances" ]
 
-
-    if params.values.include? "Comprar"
-      @all_realestates = Realestate.where.not(salesprice: nil)
-    elsif params.values.include? "Llogar"
-      @all_realestates = Realestate.where.not(rentprice: nil)
-    elsif params[:ref].present?
-      @all_realestates = Realestate.where("reference ilike ?", params[:ref])
-    else
-      @all_realestates = Realestate.where(nil)
-    end
-
-    if (params.values & @all_towns).length > 0
-      @all_realestates = @all_realestates.includes(:town).where('town.name' => params.values)
-    elsif (params.values & @all_rstypes).length > 0
-      @all_realestates = @all_realestates.where(rstype: params.values)
-    # elsif params[:municipi].present? && params[:column].present?
-    #   @all_realestates = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:column]} #{params[:direction]}")
-    # elsif params[:municipi].present?
-    #   @all_realestates = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%"))
-    # elsif params[:column].present?
-    #   @all_realestates = @all_realestates.order("#{params[:column]} #{params[:direction]}")
-    elsif params[:min].present? & params[:max].present?
-      @all_realestates = @all_realestates.where('salesprice >= ?', params[:min].to_i).where('salesprice <= ?', params[:max].to_i)
-    elsif params[:min].present?
-      @all_realestates = @all_realestates.where('salesprice >= ?', params[:min].to_i)
-    elsif params[:max].present?
-      @all_realestates = @all_realestates.where('salesprice <= ?', params[:max].to_i)
-    end
+    #   @find_town_by_part_of_the_name = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:column]} #{params[:direction]}")
+    @all_realestates = Realestate.where(nil)
+    @all_realestates = @all_realestates.filter_by_sale if params.values.include? "Comprar"
+    @all_realestates = @all_realestates.filter_by_rent if params.values.include? "Llogar"
+    @all_realestates = @all_realestates.filter_by_reference if params[:ref].present?
+    @all_realestates = @all_realestates.filter_by_town(params.values) if (params.values & @all_towns).length > 0
+    @all_realestates = @all_realestates.filter_by_rstype(params.values) if (params.values & @all_rstypes).length > 0
+    @all_realestates = @all_realestates.filter_by_min(params[:min]) if params[:min].present?
+    @all_realestates = @all_realestates.filter_by_max(params[:max]) if params[:max].present?
 
     @all_realestates = @all_realestates.order("#{params[:column]} #{params[:direction]}")
     @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 5) if @all_realestates
