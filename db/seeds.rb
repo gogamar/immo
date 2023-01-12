@@ -8,7 +8,7 @@ require 'nokogiri'
 # puts "Logging to ghestia FTP"
 
 # ftp = Net::FTP.new('ftp.ghestia.cat')
-# ftp.login('api6541', 'RFDWxhjuxqO9SuZ1qsCX')
+# ftp.login(ENV['GH_L'], ENV['GH_P'])
 
 # puts "Logged in"
 
@@ -44,27 +44,29 @@ require 'nokogiri'
 # ftp.getbinaryfile("INMUEBLES_MODIFICADOS.xml", "public/xml/INMUEBLES_MODIFICADOS.xml")
 
 
-# puts "Parsing xml file with Nokogiri"
+puts "Parsing xml file with Nokogiri"
 
-# doc = Nokogiri::XML(File.open("public/xml/INMUEBLES_MODIFICADOS.xml"))
+doc = Nokogiri::XML(File.open("public/xml/INMUEBLES_MODIFICADOS.xml"))
 
-# puts "Done parsing"
+puts "Done parsing"
 
 # # Parse the XML and create objects as needed
 
 # # item is the name of the element in the xml document <item></item>
-# realestates = doc.search('inmueble')
+realestates = doc.search('inmueble')
 
 # # Iterate over the elements and extract the data you want to use to create objects. You can use the element.content method to get the content of an element, and the element['attribute'] syntax to get the value of an attribute.
 
 # puts "Destroying all properties"
-# Feature.destroy_all
+puts "Destroying all features"
+Feature.destroy_all
 # Image.destroy_all
 # Realestate.destroy_all
 
 # puts "Creating real estate properties in Rails..."
+@realestatesRails = Realestate.all
 
-# realestates.each do |realestate|
+realestates.each do |realestate|
 
 #   idfile = realestate.search('IdFicha').first.content if realestate.search('IdFicha').first
 
@@ -114,7 +116,7 @@ require 'nokogiri'
 
 #   images = realestate.search('foto url').map(&:text)
 
-#   features = doc.search("Caracteristica")
+features = realestate.search("Caracteristica")
 
 #   # {x:, y:} is syntax sugar for {x: x, y: y}.
 
@@ -124,13 +126,20 @@ require 'nokogiri'
 #     Image.create(url:, realestate_id: realestate_web.id)
 #   end
 
-#   features.each do |feature|
-#     name = feature.at("Descripcion").text
-#     value = feature.at("Valor").text
 
-#     Feature.create(name:, value:, realestate_id: realestate_web.id)
-#   end
-# end
+puts "Creating features"
+@realestatesRails.each do |rs|
+  if realestate.search('IdFicha').first.content == rs.idfile
+    features.each do |feature|
+      name = feature.at("Descripcion").text
+      value = feature.at("Valor").text
+      Feature.create(name:, value:, realestate_id: rs.id)
+    end
+  end
+end
+
+puts "Added feature to #{realestate.search('IdFicha').first.content}"
+end
 
 # puts "Done creating realestate properties!"
 # If you have a large number of objects to create, you may want to consider using the activerecord-import gem to optimize the process. This gem allows you to create multiple objects in a single database query, which can be much faster than creating each object individually.

@@ -15,6 +15,11 @@ class RealestatesController < ApplicationController
     @salesprices_array = salesprices_1 + salesprices_2 + salesprices_3
 
     @all_operations = [ "Comprar", "Llogar", "Vacances" ]
+    @all_bedrooms = [0, 1, 2, 3, 4]
+
+    @realestate_bedrooms = Feature.where(name: "Nº de dormitorios").map {|f| [f.value.to_i, f.realestate_id]}.select {|el| el[0] >= params[:hab].to_i}.map {|ar| ar[1]}
+
+
 
     #   @find_town_by_part_of_the_name = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:column]} #{params[:direction]}")
     @all_realestates = Realestate.where(nil)
@@ -25,6 +30,7 @@ class RealestatesController < ApplicationController
     @all_realestates = @all_realestates.filter_by_rstype(params.values) if (params.values & @all_rstypes).length > 0
     @all_realestates = @all_realestates.filter_by_min(params[:min]) if params[:min].present?
     @all_realestates = @all_realestates.filter_by_max(params[:max]) if params[:max].present?
+    @all_realestates = @all_realestates.filter_by_bedrooms(@realestate_bedrooms) if params[:hab].present?
 
     @all_realestates = @all_realestates.order("#{params[:column]} #{params[:direction]}")
     @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 5) if @all_realestates
