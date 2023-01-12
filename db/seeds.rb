@@ -7,8 +7,7 @@ require 'nokogiri'
 
 # puts "Logging to ghestia FTP"
 
-# ftp = Net::FTP.new('ftp.ghestia.cat')
-# ftp.login('api6541', 'RFDWxhjuxqO9SuZ1qsCX')
+
 
 # puts "Logged in"
 
