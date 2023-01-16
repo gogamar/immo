@@ -276,15 +276,11 @@ ca:
         cadastre: "Cadastre"
         energy: "Certificat d'eficiencia energètica"
         description: "Descripció"
-      vrowner:
-        vrowner: "Propietari"
-        fullname: "Nom i cognoms"
-        address: "Adreça"
-        phone: "Telèfon"
+      contact:
+        name: "Nom"
+        message: "Missatge"
+        nickname: "Nickname"
         email: "Email"
-        document: "DNI"
-        account: "Compte bancari"
-        language: "Idioma"
       owner:
         owner: "Propietari"
         fullname: "Nom i cognoms"

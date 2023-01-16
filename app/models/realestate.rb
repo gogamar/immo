@@ -30,7 +30,7 @@ class Realestate < ApplicationRecord
     address = []
     street = self.speclocation || "#{self.typestreet} #{self.namestreet}"
     address << street unless street === ""
-    address << town.name
+    address << self.town.name
     return address.join(', ')
   end
 end
