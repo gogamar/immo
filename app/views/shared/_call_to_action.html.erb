@@ -8,7 +8,10 @@
             <h3>Tens un immoble i vols que t'ajudem a vendre'l?</h3>
             <span>Publica el teu anunci gratis.</span>
           </div>
-          <a href="#" class="btn btn-call-to-act">Afegir immoble</a>
+          <%= link_to new_realestate_path, class: "btn btn-call-to-act" do %>
+            <i class="fas fa-house-circle-check"></i>
+            <span class="ms-1">Afegir immoble</span>
+          <% end %>
         </div>
       </div>
     </div>

@@ -18,11 +18,13 @@
       <div class="listing-detail-wrapper-box">
         <div class="listing-detail-wrapper">
           <div class="listing-short-detail">
-            <h4 class="listing-name"><a href="single-property-2.html"> <%= realestate.title || "#{realestate.rstype} a #{realestate.town.name}" %> </a></h4>
+            <h4 class="listing-name">
+              <%= link_to realestate.title.present? ? realestate.title : "#{realestate.rstype} a #{realestate.town.name}", realestate %>
+            </h4>
             <span class="prt-types sale"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
           </div>
           <div class="list-price">
-            <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 2).delete(' ') %></h6>
+            <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') %></h6>
           </div>
         </div>
       </div>
@@ -70,7 +72,7 @@
             </span>
           </div>
           <div class="listing-detail-btn">
-            <a href="single-property-2.html" class="more-btn">Més detalls</a>
+            <%= link_to "Més detalls", realestate, class: "more-btn" %>
           </div>
         </div>
       </div>

@@ -19,8 +19,6 @@ class RealestatesController < ApplicationController
 
     @realestate_bedrooms = Feature.where(name: "Nº de dormitorios").map {|f| [f.value.to_i, f.realestate_id]}.select {|el| el[0] >= params[:hab].to_i}.map {|ar| ar[1]}
 
-
-
     #   @find_town_by_part_of_the_name = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:column]} #{params[:direction]}")
     @all_realestates = Realestate.where(nil)
     @all_realestates = @all_realestates.filter_by_sale if params.values.include? "Comprar"
@@ -56,13 +54,17 @@ class RealestatesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {realestate: realestate}),
         image_url: helpers.asset_url("location.png"),
         # image_url: realestate.images.first.url,
-        price: number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 2) || number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 2) || "Consultar preu"
+        price: number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0) || number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0) || "Consultar preu"
       }
     end
   end
 
   # GET /realestates/1 or /realestates/1.json
   def show
+    @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
+    @schools = @client.spots(@realestate.latitude, @realestate.longitude, :types => 'school', :language => 'ca', :radius => 500) if @realestate.latitude.present?
+    @restaurants = @client.spots(@realestate.latitude, @realestate.longitude, :types => 'restaurant', :language => 'ca', :radius => 500) if @realestate.latitude.present?
+    @featured_realestates = Realestate.where(featured: true)
   end
 
   # GET /realestates/new

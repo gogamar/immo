@@ -18,6 +18,9 @@ class PagesController < ApplicationController
   def our_services
   end
 
+  def legal
+  end
+
   def contact
   end
 

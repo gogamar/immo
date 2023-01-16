@@ -1,4 +1,4 @@
-			<!-- ============================ Page Title Start================================== -->
+<!-- ============================ Page Title Start================================== -->
 <div class="page-title">
   <div class="container">
     <div class="row">
@@ -16,32 +16,36 @@
     <!-- row Start -->
     <div class="row">
       <div class="col-lg-7 col-md-7">
-        <div class="row">
-          <div class="col-lg-6 col-md-6">
-            <%= render "contact/new" %>
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control simple">
+        <%= form_for @contact do |f| %>
+          <% if flash[:error].present? %>
+            <p> flash[:error]</p>
+          <% end %>
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <%= f.label :name %> <br>
+                <%= f.text_field :name, required: true, class: "form-control simple" %>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <%= f.label :email %> <br>
+                <%= f.text_field :email, required: true, class: "form-control simple"  %>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control simple">
-            </div>
+          <div class="form-group">
+            <%= f.label :message %> <br>
+            <%= f.text_area :message, as: :text, class: "form-control simple"  %>
           </div>
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <input type="text" class="form-control simple">
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea class="form-control simple"></textarea>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-theme-light-2 rounded" type="submit">Submit Request</button>
-        </div>
+          <div class="form-group">
+            <%= f.label :nickname, class: "d-none"  %> <br>
+            <%= f.text_field :nickname, hint: 'leave this field blank', class: "d-none" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Enviar missatge', class: "btn btn-theme-light-2 rounded" %>
+          </div>
+        <% end %>
       </div>
       <div class="col-lg-5 col-md-5">
         <div class="contact-info">

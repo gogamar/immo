@@ -86,3 +86,4 @@ gem "pg_search"
 gem 'rails-i18n'
 gem 'flag-icons-rails'
 gem "cloudinary"
+gem 'google_places'
