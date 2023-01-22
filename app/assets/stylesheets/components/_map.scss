@@ -399,7 +399,7 @@ button.btn.adv-btn {
   width: 60%;
   background: #ffffff;
   min-height: 100vh;
-  z-index: 10;
+  z-index: 1;
   float: right;
 }
 .hm-map-container.fw-map #map {
@@ -510,7 +510,7 @@ button.btn.adv-btn {
 }
 
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-  border: 1px solid white;
+  border: 2px solid white;
 }
 
 @media (max-width: 1023px) {

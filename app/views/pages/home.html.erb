@@ -81,11 +81,13 @@
             <div class="listing-img-wrapper">
               <div class="list-img-slide">
                 <div class="click">
-                  <% realestate.images.each do |image| %>
-                    <%= link_to realestate do %>
-                      <div>
-                        <img src="<%= image.url %>" class="img-fluid mx-auto" alt="<%= realestate.title %> foto" />
-                      </div>
+                  <% if realestate.images.present? %>
+                    <% realestate.images.each do |image| %>
+                      <%= link_to realestate do %>
+                        <div>
+                          <img src="<%= image.url %>" class="img-fluid mx-auto" alt="<%= realestate.title %> foto" />
+                        </div>
+                      <% end %>
                     <% end %>
                   <% end %>
                 </div>
@@ -98,13 +100,15 @@
                     <span class="property-type"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
                   </div>
                   <div class="listing-short-detail-flex">
-                    <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') %></h6>
+                    <% if realestate.salesprice.present? || realestate.rentprice.present? %>
+                      <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') %></h6>
+                    <% end %>
                   </div>
                 </div>
               </div>
               <div class="listing-detail-wrapper">
                 <h4 class="listing-name verified">
-                  <%= realestate.title || "#{realestate.rstype} a #{realestate.town_name}" %>
+                  <%= realestate.title || "#{realestate.rstype if realestate.rstype.present?} a #{realestate.town_name if realestate.town_name.present?}" %>
                 </h4>
               </div>
               <div class="price-features-wrapper">
@@ -212,7 +216,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light rounded">Browse More Locations</a>
+        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light rounded">Mostrar altres ubicacions</a>
       </div>
     </div>
   </div>
@@ -232,30 +236,32 @@
     <div class="row justify-content-center">
       <div class="col-lg-12 col-md-12">
         <div class="smart-textimonials smart-center" id="smart-textimonials">
-          <% @reviews.each do |review| %>
-            <!-- Single Item -->
-            <div class="item">
-              <div class="item-box">
-                <div class="smart-tes-author">
-                  <div class="st-author-box">
-                    <div class="st-stars">
-                      <% review.rating.times do %>
-                        <i class="fas fa-star yellow-icon"></i>
-                      <% end %>
-                      <% (5 - review.rating).times do %>
-                        <i class="far fa-star yellow-icon"></i>
-                      <% end %>
+          <% if @reviews.present? %>
+            <% @reviews.each do |review| %>
+              <!-- Single Item -->
+              <div class="item">
+                <div class="item-box">
+                  <div class="smart-tes-author">
+                    <div class="st-author-box">
+                      <div class="st-stars">
+                        <% review.rating.times do %>
+                          <i class="fas fa-star yellow-icon"></i>
+                        <% end %>
+                        <% (5 - review.rating).times do %>
+                          <i class="far fa-star yellow-icon"></i>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="smart-tes-content">
-                  <p><%= review.content %></p>
-                </div>
-                <div class="st-author-info">
-                  <h4 class="st-author-title"><%= review.author %></h4>
+                  <div class="smart-tes-content">
+                    <p><%= review.content %></p>
+                  </div>
+                  <div class="st-author-info">
+                    <h4 class="st-author-title"><%= review.author %></h4>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
