@@ -1,25 +1,39 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="d-flex justify-content-center my-5">
+  <div class="col-lg-4 col-md-4">
+    <h2>Nou usuari</h2>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first_name" }%>
+        <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last_name" }%>
+        <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+        <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+        <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+        <% if resource.avatar.attached? %>
+          <%= image_tag(resource.avatar, class: "avatar")%>
+        <% else %>
+          <%= image_tag("https://res.cloudinary.com/dlzusxobf/image/upload/v1674377649/sistach_favicon_c9rb1y.png", class: "avatar")%>
+          <%= f.input :avatar, as: :file, label: "Canviar avatar" %>
+        <% end %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Enviar", class: "btn btn-md full-width btn-theme-light-2 rounded"%>
+      </div>
+    <% end %>
+    <%# render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

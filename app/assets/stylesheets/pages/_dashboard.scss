@@ -161,3 +161,72 @@ table.property-table-wrap .property-container .title .table-property-price {
   margin-top: 9px;
   padding: 2px 10px;
 }
+
+// added
+
+.checkbox-image ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.checkbox-image li {
+  display: inline-block;
+}
+
+.checkbox-image input[type="checkbox"][id^="myCheckbox"] {
+  display: none;
+}
+
+.checkbox-image label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.checkbox-image label:before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+.checkbox-image label img {
+  height: 100px;
+  width: 100px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+.checkbox-image :checked + label {
+  border-color: #ddd;
+}
+
+.checkbox-image :checked + label:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+.checkbox-image :checked + label img {
+  transform: scale(0.9);
+  /* box-shadow: 0 0 5px #333; */
+  z-index: -1;
+}
+
+.checkbox-image input[type="checkbox" i] {
+  display: none;
+}

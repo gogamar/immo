@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i[home about_us our_services contact]
-  # uncoment previous and remove the next line when I have users and login etc.
-  # skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
+
 
   def home
     @realestates = Realestate.all
@@ -12,6 +11,10 @@ class PagesController < ApplicationController
     # @all_towns = Realestate.all.pluck(:town).uniq.sort
   end
 
+  def dashboard
+    @realestates = Realestate.all
+  end
+
   def about_us
   end
 
@@ -19,9 +22,6 @@ class PagesController < ApplicationController
   end
 
   def legal
-  end
-
-  def contact
   end
 
   def vacation_rentals

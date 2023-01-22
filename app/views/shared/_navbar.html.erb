@@ -17,11 +17,14 @@
           </li>
           <li><%= link_to "Immobles", realestates_path %>
           </li>
+          <li><%= link_to "Mapa", index_map_realestates_path %>
+          </li>
           <li><a href="/lloguer-turistic">Lloguer turístic</a>
           </li>
           <li><a href="/sobre-nosaltres">Sobre nosaltres</a>
           </li>
-          <li><a href="/noticies">Noticies</a>
+          <li>
+            <%= link_to "Noticies", posts_path %>
           </li>
           <li><a href="/contacte">Contacte</a>
           </li>
@@ -35,7 +38,19 @@
             <% end %>
           </li>
           <% if user_signed_in? %>
-            <li><%= current_user.email %></li>
+            <li class="nav-item dropdown">
+              <%# image_tag("sistach_favicon", alt: "Sistach Finques"), class: "avatar dropdown-toggle", id: "navbarDropdown1", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% if current_user.avatar.attached? %>
+                <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= cl_image_tag("https://res.cloudinary.com/dlzusxobf/image/upload/v1674377649/sistach_favicon_c9rb1y.png", alt: "Sistach Finques", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Editar el compte", edit_user_registration_path, class: "dropdown-item" %>
+                <a href="/control-panel" class="dropdown-item">Panel de control</a>
+                <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#logout" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Tancar sessió</a>
+              </div>
+            </li>
           <% else %>
             <li class="add-listing blue2">
               <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login"><i class="fas fa-user"></i> Iniciar sessió</a>

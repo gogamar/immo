@@ -37,17 +37,17 @@
           </div>
         </div>
         <div class="_mp_filter_last">
-          <% if params[:direction] == 'asc' %>
-            <%= link_to realestates_path(column: :salesprice, direction: 'desc'), class: "map_filter min" do %>
-              <i class="fa fa-caret-down mr-2"></i>Ordenar per preu
+          <% if params[:d] == 'asc' %>
+            <%= link_to request.params.except(:page).merge(c: :salesprice, d: 'desc'), class: "map_filter min" do %>
+              <i class="fa fa-caret-down mr-2"></i>Ordenar per preu x
             <% end %>
-          <% elsif params[:direction] == 'desc' %>
-            <%= link_to realestates_path(column: :salesprice, direction: 'asc'), class: "map_filter min" do %>
-              <i class="fa fa-caret-up mr-2"></i>Ordenar per preu
+          <% elsif params[:d] == 'desc' %>
+            <%= link_to request.params.except(:page).merge(c: :salesprice, d: 'asc'), class: "map_filter min" do %>
+              <i class="fa fa-caret-up mr-2"></i>Ordenar per preu x
             <% end %>
           <% else %>
-            <%= link_to realestates_path(column: :salesprice, direction: 'asc'), class: "map_filter min" do %>
-              <i class="fa fa-caret-up mr-2"></i>Ordenar per preu
+            <%= link_to request.params.except(:page).merge(c: :salesprice, d: 'asc'), class: "map_filter min" do %>
+              <i class="fa fa-caret-up mr-2"></i>Ordenar per preu x
             <% end %>
           <% end %>
           <a href="#" class="map_filter min" data-bs-toggle="modal" data-bs-target="#filter"><i class="fa fa-sliders-h mr-2"></i>Short Filter</a>

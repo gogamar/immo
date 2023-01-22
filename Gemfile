@@ -12,6 +12,7 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -52,6 +53,9 @@ gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"
+gem "sidekiq-cron"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -78,8 +82,7 @@ group :test do
 end
 
 # added gems
-gem 'net-ftp'
-gem 'nokogiri'
+gem 'net-ftp', '~> 0.1.3'
 gem "geocoder"
 gem 'pagy', '~> 6.0' # omit patch digit
 gem "pg_search"
@@ -87,3 +90,7 @@ gem 'rails-i18n'
 gem 'flag-icons-rails'
 gem "cloudinary"
 gem 'google_places'
+gem 'ckeditor'
+gem "mini_magick"
+gem 'social-share-button'
+gem 'devise-i18n'

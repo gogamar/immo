@@ -20,7 +20,7 @@
         <div class="simple-sidebar sm-sidebar" id="filter_search"  style="left:0;">
           <div class="search-sidebar_header">
             <h4 class="ssh_heading">Close Filter</h4>
-            <button onclick="closeFilterSearch()" class="w3-bar-item w3-button w3-large"><i class="ti-close"></i>
+            <button onclick="closeFilterSearch()" class="w3-bar-item w3-button w3-large"><i class="fas fa-times"></i>
             </button>
           </div>
           <!-- Find New Property -->
@@ -326,18 +326,11 @@
                       <div class="sty_1523">
                         <div class="_mp_filter mb-3">
                           <div>
-                            <% if params[:direction] == 'asc' %>
-                              <%= link_to request.params.merge(column: :salesprice, direction: 'desc'), class: "map_filter min" do %>
-                                <i class="fa fa-caret-down mr-2"></i>Ordenar per preu
-                              <% end %>
-                            <% elsif params[:direction] == 'desc' %>
-                              <%= link_to request.params.merge(column: :salesprice, direction: 'asc'), class: "map_filter min" do %>
-                                <i class="fa fa-caret-up mr-2"></i>Ordenar per preu
-                              <% end %>
-                            <% else %>
-                              <%= link_to request.params.merge(column: :salesprice, direction: 'asc'), class: "map_filter min" do %>
-                                <i class="fa fa-caret-up mr-2"></i>Ordenar per preu
-                              <% end %>
+                            <%= link_to request.params.except(:page).merge(c: :salesprice, d: 'asc'), class: "map_filter min" do %>
+                              <i class="fa fa-caret-up mr-2"></i>Primer preu més baix
+                            <% end %>
+                            <%= link_to request.params.except(:page).merge(c: :salesprice, d: 'desc'), class: "map_filter min" do %>
+                              <i class="fa fa-caret-down mr-2"></i>Primer preu més alt
                             <% end %>
                             <!--Short Filter not applying for now----------------------
                 <a href="#" class="map_filter min" data-bs-toggle="modal" data-bs-target="#filter"><i class="fa fa-sliders-h mr-2"></i>Short Filter</a>
@@ -352,7 +345,7 @@
                           <div class="_mp_filter_last">
                             <div class="filter_list_item">
                               <div class="selected_item_wrap">
-                                <% params.compact_blank.except(:action, :controller, :locale, :column, :direction, :page).each do |key, value| %>
+                                <% params.compact_blank.except(:action, :controller, :locale, :c, :d, :page, :button).each do |key, value| %>
                                   <div class="slt_single_item">
                                     <%= link_to request.params.except(key.to_sym), class: "remove_pills" do %>
                                       <span class="pills_tex"><%= key if key == "min" || key == "max" %> <%= value %> <%= "#{key}. o més" if key == "hab" %> </span>
@@ -360,7 +353,7 @@
                                     <% end %>
                                   </div>
                                 <% end %>
-                                <% if params.except(:action, :controller, :locale, :column, :direction, :page).values.length > 1 %>
+                                <% if params.except(:action, :controller, :locale, :c, :d, :page).values.length > 1 %>
                                   <div class="slt_single_item">
                                     <%= link_to realestates_path, class: "clear_pills" do %>
                                       <span class="pills_clears">Treure tots els filtres</span>

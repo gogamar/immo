@@ -16,6 +16,9 @@ application.register("lightbox", LightboxController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import SingleMapController from "./single_map_controller"
+application.register("single-map", SingleMapController)
+
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 

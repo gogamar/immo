@@ -219,6 +219,8 @@ const initSlick = () => {
     ],
   });
 
+
+
   // Slider
   $(".clior").slick({
     slidesToShow: 1,

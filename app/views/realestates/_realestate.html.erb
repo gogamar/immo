@@ -24,7 +24,7 @@
             <span class="prt-types sale"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
           </div>
           <div class="list-price">
-            <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') %></h6>
+            <h6 class="listing-card-info-price"><%= number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') || number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ')  %></h6>
           </div>
         </div>
       </div>

@@ -69,7 +69,7 @@
       <div class="col-lg-7 col-md-10 text-center">
         <div class="sec-heading center">
           <h2>Immobles Destacats</h2>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+          <p>Aquest és el nostre aparador: aquí trobaràs els immobles destacats aquesta setmana de Sistach Finques. Cada setmana seleccionem els immobles que destaquen pel preu, singularitat o serien una bona inversió.</p>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
               </div>
               <div class="listing-detail-wrapper">
                 <h4 class="listing-name verified">
-                  <%= realestate.title || "#{realestate.rstype} a #{realestate.town}" %>
+                  <%= realestate.title || "#{realestate.rstype} a #{realestate.town_name}" %>
                 </h4>
               </div>
               <div class="price-features-wrapper">
@@ -163,7 +163,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light-2 rounded">Veure més immobles</a>
+        <%= link_to "Veure més immobles", realestates_path, class: "btn btn-theme-light-2 rounded" %>
       </div>
     </div>
   </div>
@@ -176,7 +176,7 @@
       <div class="col-lg-7 col-md-10 text-center">
         <div class="sec-heading center">
           <h2>Buscar per ubicació</h2>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+          <p>Fes clic sobre la foto del municipi per veure els immobles.</p>
         </div>
       </div>
     </div>

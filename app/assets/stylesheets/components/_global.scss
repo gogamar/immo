@@ -2956,7 +2956,7 @@ a.btn-outline-success:focus {
   font-family: "bootstrap-icons";
   font-size: 1.5rem;
   font-weight: 900;
-  background: #140c40 !important;
+  // background: #140c40 !important;
   border-radius: 2px;
   box-shadow: none;
   color: #ffffff;
@@ -2971,7 +2971,7 @@ a.btn-outline-success:focus {
   font-family: "bootstrap-icons";
   width: 18px;
   height: 18px;
-  background: #140c40 !important;
+  // background: #140c40 !important;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -3123,7 +3123,7 @@ a.btn-outline-success:focus {
 [type="radio"]:not(:checked) + label:after {
   width: 18px;
   height: 18px;
-  background: #fd5332;
+  // background: #fd5332;
   position: absolute;
   // top: 4px;
   left: 4px;
@@ -3264,12 +3264,20 @@ a.btn-outline-success:focus {
 }
 /*------------ GLobal Settings: All Forms Style ---------------*/
 .form-control {
-  height: 56px;
+  // height: 56px;
   font-size: 16px;
   box-shadow: none;
-  padding: 0.5rem 0.75rem;
+  // padding: 0.5rem 0.75rem;
   border: 1px solid #e0ecf5;
   background-clip: initial;
+}
+.form-control-photo {
+  font-size: 16px;
+  box-shadow: none;
+  border: 1px solid #e0ecf5;
+  background-clip: initial;
+  height: 38px !important;
+  padding: 0.375rem 0.75rem;
 }
 .submit-form .form-control,
 .submit-page .form-control,

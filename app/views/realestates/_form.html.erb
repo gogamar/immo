@@ -8,9 +8,14 @@
     <%= f.input :reference %>
     <%# f.input :country %>
     <%= f.input :speclocation %>
+    <!-- Autocomplete for address -->
+    <%= f.input :address,
+      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+    %>
     <%= f.input :typestreet %>
-    <%= f.input :namestreet %>
-    <%= f.input :numberstreet %>
+    <%= f.input :namestreet, input_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"], address_autocomplete_target: "street"}} %>
+    <%= f.input :numberstreet, input_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"], address_autocomplete_target: "streetnumber"}} %>
     <%= f.input :featured %>
     <%= f.input :usurface %>
     <%= f.input :csurface %>
@@ -18,13 +23,8 @@
     <%= f.input :rentprice %>
     <%= f.input :region %>
     <%= f.input :province %>
-    <%= f.input :town %>
+    <%= f.association :town %>
     <%= f.input :postcode %>
-    <!-- Autocomplete for address -->
-    <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-    %>
     <%= f.input :area %>
     <%= f.input :title %>
     <%= f.input :ad %>

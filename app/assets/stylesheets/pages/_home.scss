@@ -1332,11 +1332,7 @@ span.hm_nav_clear {
   right: 0;
   left: auto;
 }
-.filter_wraps [type="radio"]:checked + label:after,
-.filter_wraps [type="radio"]:not(:checked) + label:after {
-  right: 3px;
-  left: auto;
-}
+
 .filter-list li {
   padding: 1rem 0;
   border-bottom: 1px solid rgba(20, 12, 64, 0.12);

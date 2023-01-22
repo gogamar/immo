@@ -6,7 +6,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>TV11001</Referencia>
     <FechaAlta>2022-11-22</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Otro</TipoEspecifico>
@@ -302,7 +302,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VA27</Referencia>
     <FechaAlta>2022-10-21</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -504,7 +504,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VA65</Referencia>
     <FechaAlta>2022-08-23</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -674,7 +674,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VA0105</Referencia>
     <FechaAlta>2022-06-15</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -816,7 +816,7 @@
     <TipoGenerico>Parking</TipoGenerico>
     <Referencia>VA333</Referencia>
     <FechaAlta>2022-04-13</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Plaza de aparcamiento</TipoEspecifico>
@@ -898,7 +898,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VB01001</Referencia>
     <FechaAlta>2022-01-04</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Piso</TipoEspecifico>
@@ -1106,7 +1106,7 @@
     <TipoGenerico>Casa</TipoGenerico>
     <Referencia>VA3</Referencia>
     <FechaAlta>2021-08-10</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Otro</TipoEspecifico>
@@ -1284,7 +1284,7 @@
     <TipoGenerico>Casa</TipoGenerico>
     <Referencia>VA1</Referencia>
     <FechaAlta>2021-08-10</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Casa rural</TipoEspecifico>
@@ -1466,7 +1466,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VA92</Referencia>
     <FechaAlta>2021-08-10</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -1659,171 +1659,12 @@
     <Imagenes_Certificado/>
   </inmueble>
   <inmueble>
-    <IdFicha>inmo_02814_258720</IdFicha>
-    <IdAgencia>inmo_02814</IdAgencia>
-    <TipoGenerico>Piso</TipoGenerico>
-    <Referencia>MSSB0401</Referencia>
-    <FechaAlta>2021-04-14</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
-    <Estado>Disponible</Estado>
-    <SubEstado/>
-    <TipoEspecifico>Piso</TipoEspecifico>
-    <Pais>España</Pais>
-    <SituacionConcreta>Calle de Tapioles</SituacionConcreta>
-    <TipoVia>Calle</TipoVia>
-    <NombreVia>de Tapioles</NombreVia>
-    <NumeroVia/>
-    <SuperficieUtil>50.00</SuperficieUtil>
-    <SuperficieConstruida>62.00</SuperficieConstruida>
-    <PrecioVenta>280000</PrecioVenta>
-    <PrecioAlquiler/>
-    <PrecioTraspaso/>
-    <PrecioSubasta/>
-    <PrecioAlquilerTemporada/>
-    <Comunidad>Cataluña</Comunidad>
-    <Provincia>Barcelona</Provincia>
-    <Localidad>Barcelona</Localidad>
-    <CodigoPostal>08004</CodigoPostal>
-    <Zona>Sants - Montjuïc / El Poble Sec</Zona>
-    <Anuncio><![CDATA[Piso CON LICENCIA TURISTICA de unos 62 m2 construidos  aprox. de 2 habitaciones, salón sala de estar y cocina independiente. Totalmente mueblado y equipado. Aire acondicionado. En pleno rendimiento. Especial inversores. Alta rentabilidad. ]]></Anuncio>
-    <Slogan><![CDATA[CON LICENCIA TURÍSTICA]]></Slogan>
-    <ReferenciaCatastral/>
-    <Latitud>41.3733629</Latitud>
-    <Longitud>2.1644952</Longitud>
-    <ContratoExclusividad>0</ContratoExclusividad>
-    <FechaFinExclusiva/>
-    <ObraNueva>No</ObraNueva>
-    <Apialia>0</Apialia>
-    <Bancario>0</Bancario>
-    <Visibilidad>2</Visibilidad>
-    <Caracteristicas>
-      <Caracteristica>
-        <Descripcion>Estado conservación</Descripcion>
-        <Valor>Muy buena</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Nº de baños</Descripcion>
-        <Valor>1</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Nº de dormitorios</Descripcion>
-        <Valor>2</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Amueblado</Descripcion>
-        <Valor>Si</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Dormitorios individuales</Descripcion>
-        <Valor>1</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Dormitorios dobles</Descripcion>
-        <Valor>1</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Categoría del consumo energético</Descripcion>
-        <Valor>E</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Observaciones</Descripcion>
-        <Valor>  </Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Ubicación local</Descripcion>
-        <Valor>A pie de calle</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Categoría de les emisiones</Descripcion>
-        <Valor>E</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Emisiones CO2 (kg CO2/m2 año)</Descripcion>
-        <Valor>30</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Consumo energético (kWh/m2 año)</Descripcion>
-        <Valor>119</Valor>
-      </Caracteristica>
-      <Caracteristica>
-        <Descripcion>Parcela (m2)</Descripcion>
-        <Valor/>
-      </Caracteristica>
-    </Caracteristicas>
-    <Imagenes>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_27a34f2e7a9da354a038215e7efb5b93.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_6b3e69cd9f7a0d3b7be71f5971eb0ddc.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_efc46281462fc34ae38f9677d0f6eda2.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_0ffd46b26df897480b7f4709390c9152.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_78cc2ceac4a2cb0e3c7331317ebd389a.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_90eaaee8d25c04f78f6e6e67239be9ba.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_891713349e3a65d9ddb015b6e94b551e.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_8b457b291f53a7ea803fbfcbb678968e.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_61e224b17aa54d5a4c793fc352833b54.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_9db7bd79cdbd1dbe9eac17752c5dc6ed.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_87039e01f813ffbc92ab4ddfce6daf03.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_cce73d7f77e6f980109bce3ece9e3390.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_f05c494c24aa1e8559427824581c6a6b.jpg</url>
-      </foto>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_669f336a254aa7777e536228028daf64.jpg</url>
-      </foto>
-    </Imagenes>
-    <Destacado/>
-    <Superdestacado/>
-    <Imagenes_Certificado>
-      <foto>
-        <Nombre/>
-        <url>http://imagenes.ghestia.cat/images/ghestia/files/properties/images25/258720/images/003253300_6f9a0e22eb6c39b3dae92669f646e174.jpg</url>
-      </foto>
-    </Imagenes_Certificado>
-  </inmueble>
-  <inmueble>
     <IdFicha>inmo_02814_252875</IdFicha>
     <IdAgencia>inmo_02814</IdAgencia>
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VE00515</Referencia>
     <FechaAlta>2021-02-09</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Casa de pueblo</TipoEspecifico>
@@ -1968,7 +1809,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VM335</Referencia>
     <FechaAlta>2020-11-30</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Piso</TipoEspecifico>
@@ -2137,7 +1978,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VM99</Referencia>
     <FechaAlta>2020-08-21</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Dúplex</TipoEspecifico>
@@ -2309,7 +2150,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VM15555</Referencia>
     <FechaAlta>2020-08-21</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -2458,7 +2299,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VM755</Referencia>
     <FechaAlta>2020-03-20</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -2587,7 +2428,7 @@
     <TipoGenerico>Piso</TipoGenerico>
     <Referencia>VMSS09001</Referencia>
     <FechaAlta>2019-07-31</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Apartamento</TipoEspecifico>
@@ -2734,7 +2575,7 @@
     <TipoGenerico>Suelo</TipoGenerico>
     <Referencia>050</Referencia>
     <FechaAlta>2017-01-21</FechaAlta>
-    <FechaModificacion>2022-12-21</FechaModificacion>
+    <FechaModificacion>2023-01-20</FechaModificacion>
     <Estado>Disponible</Estado>
     <SubEstado/>
     <TipoEspecifico>Suelo urbano</TipoEspecifico>
