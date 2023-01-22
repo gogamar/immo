@@ -28,7 +28,7 @@
   position: relative;
 }
 .icon-features-wrap:before {
-  content: image-url("arrow.png");
+  // content: cl_image_tag("https://res.cloudinary.com/dlzusxobf/image/upload/v1674377617/arrow_zodmng.png");
   position: absolute;
   width: auto;
   height: auto;
