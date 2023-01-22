@@ -15,12 +15,13 @@ module Immo
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.assets.initialize_on_precompile = false
     config.i18n.available_locales = [:en, :es, :fr, :ca]
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
 
     config.i18n.default_locale = :ca
     config.active_job.queue_adapter = :sidekiq
-    config.assets.initialize_on_precompile = false
+
 
     # Configuration for the application, engines, and railties goes here.
     #
