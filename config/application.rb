@@ -20,6 +20,7 @@ module Immo
 
     config.i18n.default_locale = :ca
     config.active_job.queue_adapter = :sidekiq
+    config.assets.initialize_on_precompile = false
 
     # Configuration for the application, engines, and railties goes here.
     #
