@@ -1,12 +1,12 @@
 require 'nokogiri'
 require 'net/ftp'
 
-# ftp = Net::FTP.new('ftp.ghestia.cat')
-# ftp.login(ENV['GH_L'], ENV['GH_P'])
+ftp = Net::FTP.new('ftp.ghestia.cat')
+ftp.login(ENV['GH_L'], ENV['GH_P'])
 
-# ftp.nlst.each do |filename|
-#   ftp.getbinaryfile(filename, "public/xml/#{filename}") if File.extname(filename) == '.xml'
-# end
+ftp.nlst.each do |filename|
+  ftp.getbinaryfile(filename, "public/xml/#{filename}") if File.extname(filename) == '.xml'
+end
 
 doc = Nokogiri::XML(File.open("public/xml/INMUEBLES_MODIFICADOS.xml"))
 realestates = doc.search('inmueble')

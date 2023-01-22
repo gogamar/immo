@@ -190,8 +190,9 @@
           <div class="location-property-wrap">
             <div class="location-property-thumb">
               <% if town.photo.attached? %>
-                <a href="listings-list-with-sidebar.html"> <img src="<%= cl_image_path town.photo.key, height: 236, crop: :fill %>" class="image-fluid" alt="<%= town.name %>">
-                </a>
+                <%= link_to realestates_path(m: town.name) do %>
+                  <%= cl_image_tag town.photo.key, height: 236, crop: :fill, class: "image-fluid", alt: town.name %>
+                <% end %>
               <% else %>
                 <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
               <% end %>
