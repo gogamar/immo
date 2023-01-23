@@ -468,6 +468,12 @@
 }
 
 @media (max-width: 767px) {
+  .ipt-title {
+    display: none;
+  }
+  .ipt-subtitle {
+    display: none;
+  }
   .call-to-act {
     display: block;
     text-align: center;

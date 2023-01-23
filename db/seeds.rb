@@ -99,7 +99,7 @@ end
     rs.town_id = existing_town.id
     rs.save!
   else
-    new_town = Town.create!(name: realestate_web.town_name)
+    new_town = Town.create!(name: rs.town_name)
     rs.town_id = new_town.id
     rs.save!
   end

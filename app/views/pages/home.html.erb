@@ -13,9 +13,9 @@
         </div>
         <div class="full-search-2 eclip-search italian-search hero-search-radius shadow-hard mt-5">
           <div class="hero-search-content">
-            <div class="row">
-              <%= form_with url: realestates_path, method: :get, class: "d-flex" do |form| %>
-                <div class="col-lg-6 col-md-6 col-sm-12 b-r">
+            <%= form_with url: realestates_path, method: :get do |form| %>
+              <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 b-r">
                   <div class="form-group">
                     <div class="choose-propert-type">
                       <ul>
@@ -35,8 +35,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-3 col-sm-12 p-0 elio">
-                  <div class="form-group mb-2">
+                <div class="col-lg-5 col-md-4 col-sm-12 p-0 elio">
+                  <div class="form-group">
                     <div class="input-with-icon">
                       <select name="m" id="town" class="form-control">
                         <option value="">&nbsp;</option>
@@ -53,8 +53,8 @@
                     <button type="submit" class="btn search-btn black" data-turbo="false">Cercar</button>
                   </div>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -174,7 +174,7 @@
 </section>
 <!-- ================================= Explore Property =============================== -->
 <!-- ============================ Property Location Start ================================== -->
-<section class="bg-light">
+<section class="bg-light d-lg-block d-md-block d-sm-none">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-md-10 text-center">
@@ -191,16 +191,17 @@
             <div class="location-property-thumb">
               <% if town.photo.attached? %>
                 <%= link_to realestates_path(m: town.name) do %>
-                  <%= cl_image_tag town.photo.key, height: 236, crop: :fill, class: "image-fluid", alt: town.name %>
+                  <%= cl_image_tag town.photo.key, height: 200, width: 354, crop: :fill, class: "img-fluid", alt: town.name %>
                 <% end %>
               <% else %>
-                <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                <%= link_to realestates_path(m: town.name) do %>
+                  <img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" />
+                <% end %>
               <% end %>
             </div>
             <div class="location-property-content">
               <div class="lp-content-flex">
                 <h4 class="lp-content-title"><%= town.name %></h4>
-                <%= town.name %>
                 <% if town.realestates.count == 1 %>
                   <span> <%= town.realestates.count %> immoble </span>
                 <% else %>
@@ -208,7 +209,9 @@
                 <% end %>
               </div>
               <div class="lp-content-right">
-                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="fa-solid fa-chevron-right"></i></a>
+                <%= link_to realestates_path(m: town.name), class: "lp-property-view" do %>
+                  <i class="fas fa-caret-right"></i>
+                <% end %>
               </div>
             </div>
           </div>
@@ -217,7 +220,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light rounded">Mostrar altres ubicacions</a>
+        <a href="listings-list-with-sidebar.html" class="btn btn-theme-light rounded">Mostrar més ubicacions</a>
       </div>
     </div>
   </div>
