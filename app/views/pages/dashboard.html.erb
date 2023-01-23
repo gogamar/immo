@@ -38,13 +38,13 @@
                 <ul>
                   <li class="active"><a href="dashboard.html"><i class="fas fa-chart-line"></i> Control de panel</a></li>
                   <li><a href="my-profile.html"><i class="fas fa-user"></i> El meu compte</a></li>
-                  <li>
-                    <% if current_user.admin? %>
+                  <% if current_user.admin? %>
+                    <li>
                       <%= link_to sidekiq_web_path, target: "_blank" do %>
                         <i class="fas fa-network-wired"></i> Sidekiq
                       <% end %>
-                    <% end %>
-                  </li>
+                    </li>
+                  <% end %>
                   <li><a href="bookmark-list.html"><i class="fas fa-heart"></i> Immobles guardats</a></li>
                   <li><a href="my-property.html"><i class="fas fa-house"></i> Els meus immobles</a></li>
                   <li><a href="submit-property-dashboard.html"><i class="fas fa-house circle check"></i> Afegir immoble nou</a></li>
