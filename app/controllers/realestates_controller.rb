@@ -6,6 +6,7 @@ class RealestatesController < ApplicationController
   # GET /realestates or /realestates.json
 
   def index
+    # only show the unique names of the towns
     @all_towns = Town.all.pluck(:name).uniq
     @all_rstypes = Realestate.all.pluck(:rstype).uniq
     @all_salesprices = Realestate.all.pluck(:salesprice)
