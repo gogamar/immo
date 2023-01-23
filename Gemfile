@@ -94,3 +94,4 @@ gem 'ckeditor'
 gem "mini_magick"
 gem 'social-share-button'
 gem 'devise-i18n'
+gem "pundit"

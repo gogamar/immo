@@ -6,7 +6,6 @@ class RealestatesController < ApplicationController
   # GET /realestates or /realestates.json
 
   def index
-    # only show the unique names of the towns
     @all_towns = Town.all.pluck(:name).uniq
     @all_rstypes = Realestate.all.pluck(:rstype).uniq
     @all_salesprices = Realestate.all.pluck(:salesprice)
@@ -22,7 +21,7 @@ class RealestatesController < ApplicationController
     @realestate_bedrooms = Feature.where(name: "Nº de dormitorios").map {|f| [f.value.to_i, f.realestate_id]}.select {|el| el[0] >= params[:hab].to_i}.map {|ar| ar[1]}
 
     #   @find_town_by_part_of_the_name = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:c]} #{params[:d]}")
-    @all_realestates = Realestate.where(nil)
+    @all_realestates = policy_scope(Realestate)
     @all_realestates = @all_realestates.filter_by_sale if params.values.include? "Comprar"
     @all_realestates = @all_realestates.filter_by_rent if params.values.include? "Llogar"
     @all_realestates = @all_realestates.filter_by_reference(params[:ref]) if params[:ref].present?
@@ -41,8 +40,8 @@ class RealestatesController < ApplicationController
   end
 
   def index_map
-    @all_realestates = Realestate.where(nil)
-    @all_towns = Town.all.pluck(:name)
+    @all_realestates = policy_scope(Realestate)
+    @all_towns = policy_scope(Town).pluck(:name)
     @all_realestates = @all_realestates.filter_by_town(params.values) if (params.values & @all_towns).length > 0
     @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 10)
     @markers = @all_realestates.geocoded.map do |realestate|
@@ -58,7 +57,7 @@ class RealestatesController < ApplicationController
   end
 
   def set_featured
-    all_realestates = Realestate.all
+    all_realestates = policy_scope(Realestate)
     all_realestates.update_all(featured: false)
     featured = Realestate.where(id: params[:fr])
     featured.update_all(featured: true)
@@ -67,6 +66,7 @@ class RealestatesController < ApplicationController
 
   # GET /realestates/1 or /realestates/1.json
   def show
+    authorize @realestate
     @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
     @schools = @client.spots(@realestate.latitude, @realestate.longitude, :types => 'school', :language => 'ca', :radius => 500) if @realestate.latitude.present?
     @restaurants = @client.spots(@realestate.latitude, @realestate.longitude, :types => 'restaurant', :language => 'ca', :radius => 500) if @realestate.latitude.present?
@@ -85,6 +85,7 @@ class RealestatesController < ApplicationController
   # GET /realestates/new
   def new
     @realestate = Realestate.new
+    authorize @realestate
   end
 
   # GET /realestates/1/edit
@@ -95,6 +96,7 @@ class RealestatesController < ApplicationController
   def create
     @realestate = Realestate.new(realestate_params)
     @realestate.user_id = current_user.id
+    authorize @realestate
 
     respond_to do |format|
       if @realestate.save
@@ -109,6 +111,7 @@ class RealestatesController < ApplicationController
 
   # PATCH/PUT /realestates/1 or /realestates/1.json
   def update
+    authorize @realestate
     respond_to do |format|
       if @realestate.update(realestate_params)
         format.html { redirect_to realestate_url(@realestate), notice: "Realestate was successfully updated." }
@@ -122,6 +125,7 @@ class RealestatesController < ApplicationController
 
   # DELETE /realestates/1 or /realestates/1.json
   def destroy
+    authorize @realestate
     @realestate.destroy
 
     respond_to do |format|

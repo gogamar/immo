@@ -3,11 +3,13 @@ class ContactsController < ApplicationController
 
 def new
   @contact = Contact.new
+  authorize @contact
 end
 
 def create
   @contact = Contact.new(params[:contact])
   @contact.request = request
+  authorize @contact
   if @contact.deliver
     flash.now[:error] = nil
     redirect_to root_path, notice: 'Message sent successfully'
