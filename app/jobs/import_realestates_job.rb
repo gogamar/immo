@@ -113,10 +113,12 @@ class ImportRealestatesJob < ApplicationJob
 
     @realestates_without_coordinates.each do |rs|
       results = Geocoder.search(rs.complete_address).empty? ? Geocoder.search(rs.town_name) : Geocoder.search(rs.complete_address)
+      if results.present?
       lat_long = results.first.coordinates
       rs.latitude = lat_long[0]
       rs.longitude = lat_long[1]
       rs.save!
+      end
       sleep 1
     end
   end
