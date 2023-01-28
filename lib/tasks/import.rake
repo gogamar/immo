@@ -1,4 +1,5 @@
-namespace :import_realestates_job do
+namespace :import do
+  desc "Import real estates from ghestia"
   task run: :environment do
     ImportRealestatesJob.perform_later
   end

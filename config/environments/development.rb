@@ -70,5 +70,5 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_adapter = :sidekiq # we could uncomment this and comment the same line in application.rb if we want to use sidekiq in development, production but not in test environment
 end

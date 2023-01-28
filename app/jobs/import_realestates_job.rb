@@ -1,5 +1,4 @@
 class ImportRealestatesJob < ApplicationJob
-  # include Sidekiq::Job
   queue_as :default
   require 'nokogiri'
   require 'net/ftp'

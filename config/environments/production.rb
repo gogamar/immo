@@ -92,5 +92,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_adapter = :sidekiq # we could uncomment this and comment the same line in application.rb if we want to use sidekiq in development, production but not in test environment
 end
