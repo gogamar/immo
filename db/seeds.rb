@@ -1,8 +1,11 @@
 require 'nokogiri'
 require 'net/ftp'
 
+puts "Connecting to FTP..."
 ftp = Net::FTP.new('ftp.ghestia.cat')
 ftp.login(ENV['GH_L'], ENV['GH_P'])
+
+puts "Downloading XML files..."
 
 ftp.nlst.each do |filename|
   ftp.getbinaryfile(filename, "public/xml/#{filename}") if File.extname(filename) == '.xml'
@@ -11,12 +14,15 @@ end
 doc = Nokogiri::XML(File.open("public/xml/INMUEBLES_MODIFICADOS.xml"))
 realestates = doc.search('inmueble')
 
+puts "Deleting all realestates..."
+
 Feature.destroy_all
 Image.destroy_all
 Realestate.destroy_all
 
 realestates.each do |realestate|
   realestate_web = Realestate.find_by(idfile: realestate.search('IdFicha').first.content)
+  puts "Checking if #{realestate_web} exists in database already..."
   idfile = realestate.search('IdFicha').first.content if realestate.search('IdFicha').first
   idagency = realestate.search('IdAgencia').first.content if realestate.search('IdAgencia').first.present?
   rstype = realestate.search('TipoGenerico').first.content if realestate.search('TipoGenerico').first.present?
@@ -44,6 +50,7 @@ realestates.each do |realestate|
   features = realestate.search("Caracteristica")
 
   if realestate_web.present?
+    puts "It exists, so now we're updating #{realestate_web}..."
 
     realestate_web.update(idagency:, rstype:, reference:, country:, speclocation:, typestreet:, namestreet:, numberstreet:, usurface:, csurface:, salesprice:, rentprice:, region:, province:, town_name:, postcode:, area:, title:, ad:)
     realestate_web.save!
@@ -78,6 +85,7 @@ realestates.each do |realestate|
     end
 
   else
+    puts "It doesn't exist, so now we're creating #{realestate_web}..."
     realestate_web = Realestate.create(idfile:, idagency:, rstype:, reference:, country:, speclocation:, typestreet:, namestreet:, numberstreet:, usurface:, csurface:, salesprice:, rentprice:, region:, province:, town_name:, postcode:, area:, title:, ad:, user_id:)
     realestate_web.save!
     images.each do |url|
@@ -90,7 +98,7 @@ realestates.each do |realestate|
     end
   end
 end
-
+puts "Creating towns if they don't already exist..."
 @all_realestates = Realestate.all
 @all_towns = Town.all.pluck(:name)
 @all_realestates.each do |rs|
@@ -105,7 +113,7 @@ end
   end
 end
 
-
+puts "Creating coordinates if they don't already exist..."
 @realestates_without_coordinates = Realestate.where(latitude: nil)
 
 @realestates_without_coordinates.each do |rs|
@@ -118,3 +126,5 @@ end
   rs.save!
   sleep 1
 end
+
+puts "Done!"
