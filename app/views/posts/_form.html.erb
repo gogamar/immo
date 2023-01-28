@@ -1,10 +1,13 @@
-<%= simple_form_for(@post) do |f| %>
+<%= simple_form_for @post do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :author %>
-    <%= f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'full' } } %>
+    <%= f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'full' }}  %>
+    <%= f.input :content_es, as: :ckeditor, input_html: { ckeditor: { toolbar: 'full' }}  %>
+    <%= f.input :content_en, as: :ckeditor, input_html: { ckeditor: { toolbar: 'full' }}  %>
+    <%= f.input :content_fr, as: :ckeditor, input_html: { ckeditor: { toolbar: 'full' }}  %>
     <%= f.input :photo, as: :file, input_html: { class: "form-control-photo" }  %>
     <%= f.association :category %>
   </div>

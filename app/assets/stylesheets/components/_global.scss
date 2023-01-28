@@ -1844,6 +1844,10 @@ ul.list-style-none li a:hover {
   font-size: 15.5px;
 }
 
+.dropdown-item:active {
+  color: #fff !important;
+}
+
 /*------------- GLobal Settings: Buttons ----------------*/
 .btn {
   border: 2px solid transparent;

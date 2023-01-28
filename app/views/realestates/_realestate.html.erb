@@ -19,7 +19,7 @@
         <div class="listing-detail-wrapper">
           <div class="listing-short-detail">
             <h4 class="listing-name">
-              <%= link_to realestate.title.present? ? realestate.title : "#{realestate.rstype} a #{realestate.town.name}", realestate %>
+              <%= link_to realestate.title.present? ? realestate.title : "#{realestate.rstype} a #{realestate.town_name}", realestate %>
             </h4>
             <span class="prt-types sale"><%= realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
           </div>

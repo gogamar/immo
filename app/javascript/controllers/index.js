@@ -7,6 +7,12 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import ChooseOperationController from "./choose_operation_controller"
+application.register("choose-operation", ChooseOperationController)
+
+import ChooseTypeController from "./choose_type_controller"
+application.register("choose-type", ChooseTypeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -24,3 +30,6 @@ application.register("star-rating", StarRatingController)
 
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
+
+import UpdateFormController from "./update_form_controller"
+application.register("update-form", UpdateFormController)

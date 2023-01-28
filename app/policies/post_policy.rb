@@ -24,6 +24,10 @@ class PostPolicy < ApplicationPolicy
     return update?
   end
 
+  def update_translations?
+    return update?
+  end
+
   def update?
     user.admin? || record.user == user
   end

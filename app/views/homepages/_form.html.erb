@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@homepage) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :bheader1 %>
+    <%= f.input :bheader2 %>
+    <%= f.input :bdheader1 %>
+    <%= f.input :bdheader2 %>
+    <%= f.input :bbutton %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

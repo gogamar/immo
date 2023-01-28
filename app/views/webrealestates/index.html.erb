@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Webrealestates</h1>
+
+<div id="webrealestates">
+  <% @webrealestates.each do |webrealestate| %>
+    <%= render webrealestate %>
+    <p>
+      <%= link_to "Show this webrealestate", webrealestate %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New webrealestate", new_webrealestate_path %>

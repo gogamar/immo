@@ -6,7 +6,7 @@ class RealestatesController < ApplicationController
   # GET /realestates or /realestates.json
 
   def index
-    @all_towns = Town.all.pluck(:name).uniq
+    @all_towns = Realestate.all.pluck(:town_name).uniq.compact.sort
     @all_rstypes = Realestate.all.pluck(:rstype).uniq
     @all_salesprices = Realestate.all.pluck(:salesprice)
     i = 40000
@@ -21,7 +21,7 @@ class RealestatesController < ApplicationController
     @realestate_bedrooms = Feature.where(name: "Nº de dormitorios").map {|f| [f.value.to_i, f.realestate_id]}.select {|el| el[0] >= params[:hab].to_i}.map {|ar| ar[1]}
 
     #   @find_town_by_part_of_the_name = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:c]} #{params[:d]}")
-    @all_realestates = policy_scope(Realestate)
+    @all_realestates = policy_scope(Realestate).where(status: "active")
     @all_realestates = @all_realestates.filter_by_sale if params.values.include? "Comprar"
     @all_realestates = @all_realestates.filter_by_rent if params.values.include? "Llogar"
     @all_realestates = @all_realestates.filter_by_reference(params[:ref]) if params[:ref].present?
@@ -33,17 +33,16 @@ class RealestatesController < ApplicationController
 
     @all_realestates = @all_realestates.order("#{params[:c]} #{params[:d]}")
     @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 5) if @all_realestates
-    @towns = @all_realestates.map {|rs| rs.town.name}.uniq if @all_realestates
+    @towns = @all_realestates.map {|rs| rs.town_name}.uniq if @all_realestates
     if params.values.include? "Vacances"
       redirect_to "/lloguer-turistic"
     end
   end
 
   def index_map
-    @all_realestates = policy_scope(Realestate)
+    @all_realestates = policy_scope(Realestate).where(status: "active")
     @all_towns = policy_scope(Town).pluck(:name)
     @all_realestates = @all_realestates.filter_by_town(params.values) if (params.values & @all_towns).length > 0
-    @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 10)
     @markers = @all_realestates.geocoded.map do |realestate|
       {
         lat: realestate.latitude,
@@ -54,6 +53,7 @@ class RealestatesController < ApplicationController
         price: number_to_currency(realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0) || number_to_currency(realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0) || "Consultar preu"
       }
     end
+    @pagy, @realestates = pagy(@all_realestates, page: params[:page], items: 10)
   end
 
   def set_featured
@@ -86,10 +86,12 @@ class RealestatesController < ApplicationController
   def new
     @realestate = Realestate.new
     authorize @realestate
+
   end
 
   # GET /realestates/1/edit
   def edit
+    authorize @realestate
   end
 
   # POST /realestates or /realestates.json
@@ -147,6 +149,6 @@ class RealestatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def realestate_params
-      params.require(:realestate).permit(:idfile, :idagency, :rstype, :reference, :country, :speclocation, :typestreet, :namestreet, :numberstreet, :featured, :usurface, :csurface, :salesprice, :rentprice, :region, :province, :town_id, :postcode, :area, :title, :ad, :address, :latitude, :longitude)
+      params.require(:realestate).permit(:idfile, :idagency, :rstype, :reference, :country, :speclocation, :typestreet, :namestreet, :numberstreet, :featured, :usurface, :csurface, :salesprice, :rentprice, :region, :province, :town_name, :town_id, :postcode, :area, :title, :ad, :address, :latitude, :longitude, photos: [])
     end
 end

@@ -1,4 +1,4 @@
-            <!-- ============================================================== -->
+<!-- ============================================================== -->
 <!-- Top header  -->
 <!-- ============================================================== -->
 <!-- Start Navigation -->
@@ -26,13 +26,13 @@
           <li>
             <%= link_to "Noticies", posts_path %>
           </li>
-          <li><a href="/contacte">Contacte</a>
+          <li>
+            <%= link_to t("contact"), new_contact_path %>
           </li>
-          <li><a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup"><Registrar-se></Registrar-se></a></li>
         </ul>
         <ul class="nav-menu nav-menu-social align-to-right">
           <li>
-            <%= link_to new_realestate_path, class: "text-success" do %>
+            <%= link_to new_webrealestate_path, class: "text-success" do %>
               <i class="fas fa-house-circle-check"></i>
               <span class="ms-1">Afegir immoble</span>
             <% end %>
@@ -52,14 +52,16 @@
               </div>
             </li>
           <% else %>
+            <!--
             <li class="add-listing blue2">
               <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login"><i class="fas fa-user"></i> Iniciar sessió</a>
             </li>
+            -->
           <% end %>
           <li class="nav-item dropdown">
             <% I18n.available_locales.each do |lang| %>
               <% if I18n.locale === lang || params[:locale] === lang %>
-                <%= link_to url_for(locale: lang), class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+                <%= link_to url_for(locale: lang.to_s), class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
                   <% if lang === :ca %>
                     <span class="flag-icon flag-icon-es-ca"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
                   <% elsif lang === :en %>
@@ -73,16 +75,16 @@
               <% end %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to url_for(locale: :en), class: "dropdown-item" do %>
+              <%= link_to url_for(locale: 'en'), class: "dropdown-item" do %>
                 <span class="flag-icon flag-icon-gb"> </span> English
               <% end %>
-              <%= link_to url_for(locale: :ca), class: "dropdown-item" do %>
+              <%= link_to url_for(locale: 'ca'), class: "dropdown-item" do %>
                 <span class="flag-icon flag-icon-es-ca"> </span> Català
               <% end %>
-              <%= link_to url_for(locale: :es), class: "dropdown-item" do %>
+              <%= link_to url_for(locale: 'es'), class: "dropdown-item" do %>
                 <span class="flag-icon flag-icon-es"> </span> Español
               <% end %>
-              <%= link_to url_for(locale: :fr), class: "dropdown-item" do %>
+              <%= link_to url_for(locale: 'fr'), class: "dropdown-item" do %>
                 <span class="flag-icon flag-icon-fr"> </span> Français
               <% end %>
             </div>
@@ -97,3 +99,35 @@
 <!-- ============================================================== -->
 <!-- Top header  -->
 <!-- ============================================================== -->
+<!-- Logout Modal-->
+<div
+  class="modal fade"
+  id="logout"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="logoutModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Vols tancar la sessió?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <i class="fas fa-sign-out-alt"></i> Selecciona "Sortir" si vols tancar la sessió.
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-dismiss="modal"
+        >
+          Cancel·lar
+        </button>
+        <%= button_to "Sortir", destroy_user_session_path, method: :delete, form: {  data: { turbo: :false } }, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

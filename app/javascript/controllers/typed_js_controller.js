@@ -2,10 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 import Typed from "typed.js"
 
 export default class extends Controller {
+  static values = { typedtext: Array }
+
   connect() {
-    console.log ("new speed now");
+    console.log("Typed.")
+    console.log(this.typedtextValue)
     new Typed(this.element, {
-      strings: ["que busques", "que t'espera"],
+      strings: this.typedtextValue,
       loop: true,
       typeSpeed: 100,
       backSpeed: 80,

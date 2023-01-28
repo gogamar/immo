@@ -1,10 +1,29 @@
-<h1>Editing post</h1>
-
-<%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+<!-- ============================ Page Title Start================================== -->
+<div class="page-title">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h4 class="ipt-title">Modificar l'article <span class="text-success"><%= @post.title %></span></h4>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ============================ Page Title End ================================== -->
+<div class="row d-flex justify-content-center">
+  <div class="col-lg-6 col-md-6 mt-5">
+    <%= render "form", post: @post%>
+  </div>
+  <div class="col-lg-3 col-md-3 mt-5 pt-5">
+    <%= form_with(model: @post, controller: posts, action: update_translations(@post), method: :patch, class:"mt-5 pt-5" )do |form| %>
+      <%= form.hidden_field :content_es, value: @translation_es %>
+      <%= form.hidden_field :content_en, value: @translation_en %>
+      <%= form.hidden_field :content_fr, value: @translation_fr %>
+      <%= form.submit "Tornar a traduir (només si es canvia el text en català", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= link_to "Show this post", @post %> |
+    <%= link_to "Back to posts", posts_path %>
+  </div>
 </div>

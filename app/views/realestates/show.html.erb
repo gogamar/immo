@@ -13,9 +13,17 @@
 <%# #{image.@realestate.namestreet} %>
 <div class="listing-img-wrapper">
   <div class="single-advance-property gray">
-    <% @realestate.images.each do |image| %>
-      <%= link_to image.url, class: "mfp-gallery" do %>
-        <%= image_tag image.url, class: "img-fluid mx-auto", alt:"#{@realestate.rstype} #{@realestate.town}" %>
+    <% if @realestate.images.present? %>
+      <% @realestate.images.each do |image| %>
+        <%= link_to image.url, class: "mfp-gallery" do %>
+          <%= image_tag image.url, class: "img-fluid mx-auto", alt:"#{@realestate.rstype} #{@realestate.town_name}" %>
+        <% end %>
+      <% end %>
+    <% elsif @realestate.photos.attached? %>
+      <% @realestate.photos.each do |photo| %>
+        <%= link_to photo.key, class: "mfp-gallery" do %>
+          <%= cl_image_tag photo.key, class: "img-fluid mx-auto", alt: "#{@realestate.rstype} #{@realestate.town_name}" %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
@@ -62,9 +70,15 @@
         <div class="property_block_wrap style-2 p-4">
           <div class="prt-detail-title-desc">
             <span class="prt-types sale"><%= @realestate.salesprice.present? ? "En Venda" : "En lloguer" %></span>
-            <h3> <%= @realestate.title.present? ? @realestate.title : "#{@realestate.rstype} a #{@realestate.town.name}" %> </h3>
+            <h3> <%= @realestate.title.present? ? @realestate.title : "#{@realestate.rstype} a #{@realestate.town_name}" %> </h3>
             <span><i class="fas fa-location-dot text-secondary"></i></i> <%= @realestate.short_address %> </span>
-          <h3 class="prt-price-fix"><%= number_to_currency(@realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') if @realestate.salesprice.present? || number_to_currency(@realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') if @realestate.rentprice.present? %><sub></sub></h3>
+          <h3 class="prt-price-fix">
+            <% if @realestate.salesprice.present? %>
+              <%= number_to_currency(@realestate.salesprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ')  %>
+            <% elsif @realestate.rentprice.present? %>
+              <% number_to_currency(@realestate.rentprice, unit: "€", separator: ",", delimiter: ".", precision: 0).delete(' ') %>
+            <% end %>
+          </h3>
           <div class="list-fx-features">
             <% if @realestate.features.find_by(name: "Nº de dormitorios").present? %>
               <div class="listing-card-info-icon">
@@ -278,12 +292,22 @@
         <div id="clSev" class="panel-collapse collapse show" aria-expanded="true">
           <div class="block-body">
             <ul class="list-gallery-inline">
-              <% @realestate.images.each do |image| %>
-                <li>
-                  <%= link_to image.url, class: "mfp-gallery" do %>
-                    <%= image_tag image.url, class: "img-fluid mx-auto", alt:"#{@realestate.rstype} #{@realestate.town}" %>
-                  <% end %>
-                </li>
+              <% if @realestate.images.present? %>
+                <% @realestate.images.each do |image| %>
+                  <li>
+                    <%= link_to image.url, class: "mfp-gallery" do %>
+                      <%= image_tag image.url, class: "img-fluid mx-auto", alt: "#{@realestate.rstype} #{@realestate.town}" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% elsif @realestate.photos.attached? %>
+                <% @realestate.photos.each do |photo| %>
+                  <li>
+                    <%= link_to photo.key, class: "mfp-gallery" do %>
+                      <%= cl_image_tag photo.key, class: "img-fluid mx-auto", alt: "#{@realestate.rstype} #{@realestate.town_name}" %>
+                    <% end %>
+                  </li>
+                <% end %>
               <% end %>
             </ul>
           </div>
@@ -459,7 +483,7 @@
                   <img src="<%= realestate.images.first.url %>" class="img-fluid" alt="<%= realestate.title %> foto" />
                 </div>
                 <div class="sides_list_property_detail">
-                  <h4><%= link_to realestate.title.present? ? realestate.title : "#{realestate.rstype} a #{realestate.town.name}", realestate %></h4>
+                  <h4><%= link_to realestate.title.present? ? realestate.title : "#{realestate.rstype} a #{realestate.town_name}", realestate %></h4>
                   <span><i class="fas fa-location-dot"></i><%= realestate.short_address %></span>
                   <div class="lists_property_price">
                     <div class="lists_property_types">

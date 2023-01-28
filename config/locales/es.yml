@@ -1,5 +1,6 @@
 es:
   hello: "hola"
+  contact: Contacto
   locale: "Español"
   nights: "noches"
   from: "Desde"

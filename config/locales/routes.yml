@@ -1,0 +1,59 @@
+en:
+  routes:
+    posts: posts
+es:
+  routes:
+    posts: noticias
+    new: nuevo
+    edit: modificar
+    sign_in: entrar
+    sign_up: registrar-se
+    password: contrasena
+    homepages: portadas
+    webrealestates: agregar-inmueble
+    images: foto-urls
+    contacts: contactos
+    features: caracteristicas
+    categories: categorias
+    reviews: comentarios
+    towns: municipios
+    realestates: inmuebles
+    index_map: mapa
+    set_featured: elegir-destacados
+    photos: fotos
+    users: usuarios
+    legal-notice: aviso-legal
+    about-us: sobre-nosotros
+    contact: contacto
+    vacation-rentals: alquiler-turistico
+    dashboard: panel de control
+    thank-you: gracias
+    translations: traducciones
+ca:
+  routes:
+    posts: noticies
+    new: nou
+    edit: modificar
+    sign_in: entrar
+    sign_up: registrar-se
+    password: contrasenya
+    homepages: portades
+    webrealestates: afegir-immoble
+    images: foto-urls
+    contacts: contactes
+    features: caracteristiques
+    categories: categories
+    reviews: comentaris
+    towns: municipis
+    realestates: immobles
+    index_map: mapa
+    set_featured: triar-destacats
+    photos: fotos
+    users: usuaris
+    legal-notice: avis-legal
+    about-us: sobre-nosaltres
+    contact: contacte
+    vacation-rentals: lloguer-turistic
+    dashboard: panel de control
+    thank-you: gracies
+    translations: traduccions

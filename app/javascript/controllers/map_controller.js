@@ -39,6 +39,7 @@ export default class extends Controller {
       }
     });
   }
+
   // # means it's a private method
   #priceMarkers(map_markers) {
     map_markers.forEach((marker) => {

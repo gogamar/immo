@@ -1,0 +1,46 @@
+<%= simple_form_for webrealestate do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <% if user_signed_in? && current_user.admin? %>
+      <%= f.input :status, collection: [ 'new', 'in process', 'closed'], include_blank: false %>
+    <% end %>
+    <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+    <div data-controller="choose-type">
+      <%= f.input :webrstype, collection: @webrstypes, include_blank: false, input_html: { data: {action: "change->choose-type#show", choose_type_target: "proptype" }} %>
+      <div data-choose-type-target="flat">
+        <%= f.input :flatnumber %>
+      </div>
+    </div>
+    <div data-controller="choose-operation">
+      <%= f.input :operation, collection: [ ['Venda', 1], ['Lloguer', 2], ['Venda o Lloguer', 3]], include_blank: false, input_html: { data: { action: "change->choose-operation#show", choose_operation_target: "operation" } } %>
+      <div data-choose-operation-target="salesprice">
+        <%= f.input :salesprice %>
+      </div>
+      <div class="d-none" data-choose-operation-target="rentprice">
+        <%= f.input :rentprice %>
+      </div>
+    </div>
+    <%= f.input :surface %>
+    <%= f.input :bedrooms %>
+    <%= f.input :terrace %>
+    <%= f.input :lift %>
+    <%= f.input :owner %>
+    <%= f.input :email, required: true %>
+    <%= f.input :phone %>
+    <div>
+      <% if webrealestate.photos.attached? %>
+        <% webrealestate.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 200 %>
+          <%= link_to "Esborrar aquesta foto", photo_path(photo), data: {turbo_method: :delete, turbo_confirm: "Segur que vols esborrar aquesta foto?"} %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= f.input :photos, label: "Afegir fotos", as: :file, input_html: { multiple: true }  %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Enviar", class: "btn btn-black btn-md rounded full-width" %>
+  </div>
+<% end %>

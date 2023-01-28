@@ -1,5 +1,4 @@
 require_relative "boot"
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -14,6 +13,8 @@ module Immo
       generate.test_framework :test_unit, fixture: false
     end
     # Initialize configuration defaults for originally generated Rails version.
+
+
     config.load_defaults 7.0
     config.assets.initialize_on_precompile = false
     config.i18n.available_locales = [:en, :es, :fr, :ca]

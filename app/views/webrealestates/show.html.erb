@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @webrealestate %>
+
+<div>
+  <%= link_to "Edit this webrealestate", edit_webrealestate_path(@webrealestate) %> |
+  <%= link_to "Back to webrealestates", webrealestates_path %>
+
+  <%= button_to "Destroy this webrealestate", @webrealestate, method: :delete %>
+</div>

@@ -26,7 +26,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -95,3 +95,5 @@ gem "mini_magick"
 gem 'social-share-button'
 gem 'devise-i18n'
 gem "pundit"
+gem "google-cloud"
+gem 'route_translator'

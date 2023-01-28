@@ -17,7 +17,7 @@ class RealestatePolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user.admin?
   end
 
   def edit?
@@ -25,10 +25,10 @@ class RealestatePolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || record.user == user
+    user.admin?
   end
 
   def destroy?
-    user.admin? || record.user == user
+    user.admin?
   end
 end

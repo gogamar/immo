@@ -6,6 +6,7 @@ class Realestate < ApplicationRecord
   geocoded_by :complete_address
   after_validation :geocode, if: :address_changed
   # after_validation :change_coordinates, if: :address_changed?
+  after_create :assign_town
   include PgSearch::Model
   pg_search_scope :search_by_location,
   against: [ :town_name, :country, :region, :province, :area, :address, :speclocation, :namestreet ],
@@ -57,4 +58,9 @@ class Realestate < ApplicationRecord
     return address.join(', ')
   end
 
+  def assign_town
+    rs_town = Town.find_or_create_by!(name: self.town_name)
+    self.town = rs_town
+    self.save!
+  end
 end

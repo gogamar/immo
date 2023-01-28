@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_20_141631) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_084645) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -63,6 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_141631) do
   create_table "contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "email"
+    t.text "message"
   end
 
   create_table "features", force: :cascade do |t|
@@ -72,6 +75,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_141631) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["realestate_id"], name: "index_features_on_realestate_id"
+  end
+
+  create_table "homepages", force: :cascade do |t|
+    t.string "bheader1"
+    t.string "bheader2"
+    t.string "bdheader1"
+    t.string "bdheader2"
+    t.string "bbutton"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -91,6 +104,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_141631) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.bigint "user_id"
+    t.text "content_es"
+    t.string "content_fr"
+    t.string "content_en"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -124,6 +140,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_141631) do
     t.bigint "town_id"
     t.bigint "user_id"
     t.string "town_name"
+    t.string "operation"
+    t.string "status", default: "pending"
     t.index ["town_id"], name: "index_realestates_on_town_id"
     t.index ["user_id"], name: "index_realestates_on_user_id"
   end
@@ -158,6 +176,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_141631) do
     t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "webrealestates", force: :cascade do |t|
+    t.string "status", default: "new"
+    t.string "webrstype"
+    t.string "operation"
+    t.integer "price"
+    t.string "address"
+    t.float "surface"
+    t.integer "bedrooms"
+    t.boolean "terrace"
+    t.boolean "lift"
+    t.string "owner"
+    t.string "email"
+    t.string "phone"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "salesprice"
+    t.integer "rentprice"
+    t.string "flatnumber"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
