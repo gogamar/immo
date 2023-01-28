@@ -1,9 +1,8 @@
-# fly.toml file generated for immo on 2023-01-22T15:45:34+01:00
+# fly.toml file generated for immo on 2023-01-28T19:14:05+01:00
 
 app = "immo"
 kill_signal = "SIGINT"
 kill_timeout = 5
-processes = []
 
 [build]
   [build.args]
@@ -20,8 +19,8 @@ processes = []
   auto_rollback = true
 
 [processes]
-web = "bin/rails fly:server"
-worker = "bundle exec sidekiq"
+  web = "bin/rails fly:server"
+  worker = "bundle exec sidekiq"
 
 [[services]]
   http_checks = []
