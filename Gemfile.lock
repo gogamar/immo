@@ -130,6 +130,8 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.11.0)
+    et-orbi (1.2.7)
+      tzinfo
     execjs (2.8.1)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
@@ -159,6 +161,9 @@ GEM
       sass-rails
     font-awesome-sass (6.2.1)
       sassc (~> 2.0)
+    fugit (1.8.1)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -495,6 +500,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.3.0)
       activesupport (>= 3.0.0)
+    raabro (1.4.0)
     racc (1.6.1)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -574,6 +580,9 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.11.0)
+    sidekiq-cron (1.9.1)
+      fugit (~> 1.8)
+      sidekiq (>= 4.2.1)
     sidekiq-failures (1.0.4)
       sidekiq (>= 4.0.0)
     signet (0.17.0)
@@ -664,6 +673,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   sidekiq
+  sidekiq-cron
   sidekiq-failures (~> 1.0)
   simple_form!
   social-share-button

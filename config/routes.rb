@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   localized do
+
     # Sidekiq Web UI, only for admins.
     require "sidekiq/web"
+    require 'sidekiq/cron/web'
     authenticate :user, ->(user) { user.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+      mount Sidekiq::Web => '/sidekiq'
     end
+
     resources :posts do
       member do
         patch 'translations', to: 'posts#update_translations'

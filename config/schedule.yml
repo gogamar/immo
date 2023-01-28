@@ -1,0 +1,5 @@
+import_realestates:
+  cron: "0 6 * * *"
+  class: 'ImportRealestatesJob'
+  active_job: true
+  description: "Imports realestates from ghestia every morning at 6 am"

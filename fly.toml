@@ -18,11 +18,14 @@ kill_timeout = 5
 [experimental]
   auto_rollback = true
 
+[processes]
+  web = "bin/rails fly:server"
+  worker = "bundle exec sidekiq"
 
 [[services]]
   http_checks = []
   internal_port = 8080
-  processes = ["app"]
+  processes = ["web"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
