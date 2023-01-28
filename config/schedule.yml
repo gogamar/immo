@@ -1,3 +1,0 @@
-import_realestates_job:
-   cron: "0 6 * * *"
-   class: "ImportRealestatesJob"

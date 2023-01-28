@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   localized do
     # Sidekiq Web UI, only for admins.
     require "sidekiq/web"
-    require "sidekiq/cron/web"
     authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
     end
