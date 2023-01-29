@@ -386,4 +386,11 @@
             </div>
           </section>
           <!-- ============================ End Properties ================================== -->
-          <%# render partial: "shared/filter_modal" %>
+          <p>Realestates that should be seen on this page:</p>
+          <% @realestates.each do |rs| %>
+            <%= rs.short_address %>
+          <% end %>
+          <p>All realestates: </p>
+          <% @all_realestates.each do |rs| %>
+            <%= rs.short_address %>
+          <% end %>
