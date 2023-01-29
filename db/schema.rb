@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_084645) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_082919) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -141,7 +141,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_084645) do
     t.bigint "user_id"
     t.string "town_name"
     t.string "operation"
-    t.string "status", default: "pending"
     t.index ["town_id"], name: "index_realestates_on_town_id"
     t.index ["user_id"], name: "index_realestates_on_user_id"
   end

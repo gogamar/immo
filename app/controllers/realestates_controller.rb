@@ -21,7 +21,7 @@ class RealestatesController < ApplicationController
     @realestate_bedrooms = Feature.where(name: "Nº de dormitorios").map {|f| [f.value.to_i, f.realestate_id]}.select {|el| el[0] >= params[:hab].to_i}.map {|ar| ar[1]}
 
     #   @find_town_by_part_of_the_name = Realestate.where("similarity(town, ?) > 0.5", "%#{params[:municipi]}%").or(Realestate.where("town ilike ?", "%#{params[:municipi]}%")).order("#{params[:c]} #{params[:d]}")
-    @all_realestates = policy_scope(Realestate).where(status: "active")
+    @all_realestates = policy_scope(Realestate)
     @all_realestates = @all_realestates.filter_by_sale if params.values.include? "Comprar"
     @all_realestates = @all_realestates.filter_by_rent if params.values.include? "Llogar"
     @all_realestates = @all_realestates.filter_by_reference(params[:ref]) if params[:ref].present?
@@ -40,7 +40,7 @@ class RealestatesController < ApplicationController
   end
 
   def index_map
-    @all_realestates = policy_scope(Realestate).where(status: "active")
+    @all_realestates = policy_scope(Realestate)
     @all_towns = policy_scope(Town).pluck(:name)
     @all_realestates = @all_realestates.filter_by_town(params.values) if (params.values & @all_towns).length > 0
     @markers = @all_realestates.geocoded.map do |realestate|
