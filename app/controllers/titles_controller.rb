@@ -27,9 +27,9 @@ class TitlesController < ApplicationController
   def create
     @title = Title.new(title_params)
     @title.assign_attributes(
-      bheader1_es: translate_string(@title.bheader1, "es"),
-      bheader1_en: translate_string(@title.bheader1, "en"),
-      bheader1_fr: translate_string(@title.bheader1, "fr")
+      bheader1_es: translate_string(@title.bheader1_ca, "es"),
+      bheader1_en: translate_string(@title.bheader1_ca, "en"),
+      bheader1_fr: translate_string(@title.bheader1_ca, "fr")
     )
     authorize @title
     @title.save
@@ -44,9 +44,9 @@ class TitlesController < ApplicationController
   def update
     authorize @title
       if params[:commit] == "Save translations"
-        new_text = params[:title][:bheader1]
+        new_text = params[:title][:bheader1_ca]
         @title.update(
-          bheader1: new_text,
+          bheader1_ca: new_text,
           bheader1_en: translate_string(new_text, "en"),
           bheader1_es: translate_string(new_text, "es"),
           bheader1_fr: translate_string(new_text, "fr")
@@ -86,6 +86,6 @@ class TitlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def title_params
-      params.require(:title).permit(:bheader1, :bheader2, :bdheader1, :bdheader2, :bbutton, :video)
+      params.require(:title).permit(:bheader1_ca, :bheader2_ca, :bdheader1_ca, :bdheader2_ca, :bbutton_ca, :video)
     end
 end

@@ -405,11 +405,11 @@ ca:
         name:
           washer: "rentadora"
       homepage:
-        bheader1: Títol banner
-        bheader2: Primera part text escrit a màquina
-        bdheader1: Segona part text escrit a màquina - 1
-        bdheader2: Segona part text escrit a màquina - 2
-        bbutton: Botó al costat del títol banner
+        bheader1_ca: Títol banner
+        bheader2_ca: Primera part text escrit a màquina
+        bdheader1_ca: Segona part text escrit a màquina - 1
+        bdheader2_ca: Segona part text escrit a màquina - 2
+        bbutton_ca: Botó al costat del títol banner
   global:
     forms:
       submit: "Desar"

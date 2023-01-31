@@ -14,11 +14,11 @@ class TitlesTest < ApplicationSystemTestCase
     visit titles_url
     click_on "New title"
 
-    fill_in "Bbutton", with: @title.bbutton
-    fill_in "Bdheader1", with: @title.bdheader1
-    fill_in "Bdheader2", with: @title.bdheader2
-    fill_in "Bheader1", with: @title.bheader1
-    fill_in "Bheader2", with: @title.bheader2
+    fill_in "bbutton_ca", with: @title.bbutton_ca
+    fill_in "bdheader1_ca", with: @title.bdheader1_ca
+    fill_in "bdheader2_ca", with: @title.bdheader2_ca
+    fill_in "bheader1_ca", with: @title.bheader1_ca
+    fill_in "bheader2_ca", with: @title.bheader2_ca
     click_on "Create Title"
 
     assert_text "Title was successfully created"
@@ -29,11 +29,11 @@ class TitlesTest < ApplicationSystemTestCase
     visit title_url(@title)
     click_on "Edit this title", match: :first
 
-    fill_in "Bbutton", with: @title.bbutton
-    fill_in "Bdheader1", with: @title.bdheader1
-    fill_in "Bdheader2", with: @title.bdheader2
-    fill_in "Bheader1", with: @title.bheader1
-    fill_in "Bheader2", with: @title.bheader2
+    fill_in "bbutton_ca", with: @title.bbutton_ca
+    fill_in "bdheader1_ca", with: @title.bdheader1_ca
+    fill_in "bdheader2_ca", with: @title.bdheader2_ca
+    fill_in "bheader1_ca", with: @title.bheader1_ca
+    fill_in "bheader2_ca", with: @title.bheader2_ca
     click_on "Update Title"
 
     assert_text "Title was successfully updated"

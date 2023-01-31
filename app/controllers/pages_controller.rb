@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @all_towns = Town.joins(:photo_attachment).joins(:realestates).group("towns.id").order("count(towns.id) DESC").limit(6)
     @reviews = Review.all
     @title = Title.first
-    @typedtext = [@title.bdheader1, @title.bdheader2]
+    @typedtext = [@title.bdheader1_ca, @title.bdheader2_ca]
   end
 
   def dashboard

@@ -3,14 +3,14 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
     <%= f.input :video, as: :file %>
-    <%= f.input :bheader1 %>
+    <%= f.input :bheader1_ca %>
     <%= f.input :bheader1_es %>
     <%= f.input :bheader1_en %>
     <%= f.input :bheader1_fr %>
-    <%= f.input :bheader2 %>
-    <%= f.input :bdheader1 %>
-    <%= f.input :bdheader2 %>
-    <%= f.input :bbutton %>
+    <%= f.input :bheader2_ca %>
+    <%= f.input :bdheader1_ca %>
+    <%= f.input :bdheader2_ca %>
+    <%= f.input :bbutton_ca %>
   </div>
   <div class="form-actions mb-3">
     <%= f.button :submit, value: "Save", class: "btn btn-black btn-md rounded full-width" %>

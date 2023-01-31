@@ -17,7 +17,7 @@ class TitlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create title" do
     assert_difference("Homepage.count") do
-      post titles_url, params: { title: { bbutton: @title.bbutton, bdheader1: @title.bdheader1, bdheader2: @title.bdheader2, bheader1: @title.bheader1, bheader2: @title.bheader2 } }
+      post titles_url, params: { title: { bbutton_ca: @title.bbutton_ca, bdheader1_ca: @title.bdheader1_ca, bdheader2_ca: @title.bdheader2_ca, bheader1_ca: @title.bheader1_ca, bheader2_ca: @title.bheader2_ca } }
     end
 
     assert_redirected_to title_url(Title.last)
@@ -34,7 +34,7 @@ class TitlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update title" do
-    patch title_url(@title), params: { title: { bbutton: @title.bbutton, bdheader1: @title.bdheader1, bdheader2: @title.bdheader2, bheader1: @title.bheader1, bheader2: @title.bheader2 } }
+    patch title_url(@title), params: { title: { bbutton_ca: @title.bbutton_ca, bdheader1_ca: @title.bdheader1_ca, bdheader2_ca: @title.bdheader2_ca, bheader1_ca: @title.bheader1_ca, bheader2_ca: @title.bheader2_ca } }
     assert_redirected_to title_url(@title)
   end
 
