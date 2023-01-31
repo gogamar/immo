@@ -3,26 +3,30 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = policy_scope(Review)
   end
 
   # GET /reviews/1 or /reviews/1.json
   def show
+    authorize @review
   end
 
   # GET /reviews/new
   def new
     @review = Review.new
+    authorize @review
   end
 
   # GET /reviews/1/edit
   def edit
+    authorize @review
   end
 
   # POST /reviews or /reviews.json
   def create
     @review = Review.new(review_params)
     @review.user = current_user
+    authorize @review
 
     respond_to do |format|
       if @review.save
@@ -37,6 +41,7 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1 or /reviews/1.json
   def update
+    authorize @review
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to review_url(@review), notice: "Review was successfully updated." }
@@ -50,6 +55,7 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1 or /reviews/1.json
   def destroy
+    authorize @review
     @review.destroy
 
     respond_to do |format|
