@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   def update
   authorize @post
     if params[:commit] == "Save translations"
-      new_text = params[:post][:content]
+      new_text = params[:post][:content_ca]
       @post.update(content: new_text, content_en: translate_string(new_text, "en"), content_es: translate_string(new_text, "es"), content_fr: translate_string(new_text, "fr"))
       if @post.save
         redirect_to edit_post_path(@post), notice: "Translatiosn successfully saved."
@@ -78,6 +78,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title_ca, :author, :content, :content_es, :content_fr, :content_en, :photo, :category_id)
+    params.require(:post).permit(:title_ca, :author, :content_ca, :content_es, :content_fr, :content_en, :photo, :category_id)
   end
 end
