@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- Top header  -->
 <!-- ============================================================== -->
-<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lw">
+<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lw">
   <div class="container-fluid">
     <%= link_to root_path, class: "nav-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dlzusxobf/image/upload/v1665045942/FINQUES_SISTACH__Finques_nxoogg.png", class: "logo", alt: "Logo Sistach Finques" %>
@@ -51,38 +51,38 @@
               <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#logout" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Tancar sessió</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <% I18n.available_locales.each do |lang| %>
-              <% if I18n.locale === lang || params[:locale] === lang %>
-                <%= link_to url_for(locale: lang.to_s), class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-                  <% if lang === :ca %>
-                    <span class="flag-icon flag-icon-es-ca"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
-                  <% elsif lang === :en %>
-                    <span class="flag-icon flag-icon-gb"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
-                  <% elsif lang === :es %>
-                    <span class="flag-icon flag-icon-es"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
-                  <% elsif lang === :fr %>
-                    <span class="flag-icon flag-icon-fr"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
-                  <% end %>
+        <% end %>
+        <li class="nav-item dropdown">
+          <% I18n.available_locales.each do |lang| %>
+            <% if I18n.locale === lang || params[:locale] === lang %>
+              <%= link_to url_for(locale: lang.to_s), class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+                <% if lang === :ca %>
+                  <span class="flag-icon flag-icon-es-ca"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                <% elsif lang === :en %>
+                  <span class="flag-icon flag-icon-gb"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                <% elsif lang === :es %>
+                  <span class="flag-icon flag-icon-es"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
+                <% elsif lang === :fr %>
+                  <span class="flag-icon flag-icon-fr"> </span> <span class="ms-1 d-none d-lg-inline text-gray-600 small"><%= t('locale') %></span>
                 <% end %>
               <% end %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to url_for(locale: 'en'), class: "dropdown-item" do %>
-                  <span class="flag-icon flag-icon-gb"> </span> English
-                <% end %>
-                <%= link_to url_for(locale: 'ca'), class: "dropdown-item" do %>
-                  <span class="flag-icon flag-icon-es-ca"> </span> Català
-                <% end %>
-                <%= link_to url_for(locale: 'es'), class: "dropdown-item" do %>
-                  <span class="flag-icon flag-icon-es"> </span> Español
-                <% end %>
-                <%= link_to url_for(locale: 'fr'), class: "dropdown-item" do %>
-                  <span class="flag-icon flag-icon-fr"> </span> Français
-                <% end %>
-              </div>
             <% end %>
-          </li>
-        <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to url_for(locale: 'en'), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-gb"> </span> English
+              <% end %>
+              <%= link_to url_for(locale: 'ca'), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-es-ca"> </span> Català
+              <% end %>
+              <%= link_to url_for(locale: 'es'), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-es"> </span> Español
+              <% end %>
+              <%= link_to url_for(locale: 'fr'), class: "dropdown-item" do %>
+                <span class="flag-icon flag-icon-fr"> </span> Français
+              <% end %>
+            </div>
+          <% end %>
+        </li>
         <!--li class="nav-item"-->
         <!--/li-->
       </ul>

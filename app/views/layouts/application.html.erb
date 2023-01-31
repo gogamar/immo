@@ -4,28 +4,17 @@
     <title>Immo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag "application", :media => "all", "data-turbo-track": "reload" %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" crossorigin/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" crossorigin/>
     <link rel="stylesheet" type="text/css" href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" >
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
     <%= favicon_link_tag asset_path('https://res.cloudinary.com/dlzusxobf/image/upload/v1674377649/sistach_favicon_c9rb1y.png') %>
   </head>
   <body class="darkblue-skin">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- Activate Preloader when I make a js controller for it ==============================================================-->
-    <%# <div id="preloader">
-      <div class="preloader">
-        <span></span><span></span>
-      </div>
-    </div> %>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
@@ -37,8 +26,5 @@
         ></a>
       <%= render "shared/log_in_modal" %>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
   </body>
 </html>
