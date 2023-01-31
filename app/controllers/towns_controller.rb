@@ -3,7 +3,7 @@ class TownsController < ApplicationController
 
   # GET /towns or /towns.json
   def index
-    @towns = Town.all
+    @towns = policy_scope(Town)
   end
 
   # GET /towns/1 or /towns/1.json
