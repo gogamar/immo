@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_30_114652) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_31_123040) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -87,9 +87,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_30_114652) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
+    t.string "title_ca"
     t.string "author"
-    t.text "content"
+    t.text "content_ca"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
@@ -146,11 +146,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_30_114652) do
   end
 
   create_table "titles", force: :cascade do |t|
-    t.string "bheader1"
-    t.string "bheader2"
-    t.string "bdheader1"
-    t.string "bdheader2"
-    t.string "bbutton"
+    t.string "bheader1_ca"
+    t.string "bheader2_ca"
+    t.string "bdheader1_ca"
+    t.string "bdheader2_ca"
+    t.string "bbutton_ca"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bheader1_es"

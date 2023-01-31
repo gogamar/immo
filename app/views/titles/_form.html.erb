@@ -12,7 +12,10 @@
     <%= f.input :bdheader2 %>
     <%= f.input :bbutton %>
   </div>
+  <div class="form-actions mb-3">
+    <%= f.button :submit, value: "Save", class: "btn btn-black btn-md rounded full-width" %>
+  </div>
   <div class="form-actions">
-    <%= f.button :submit, label: "Actualitzar", class: "btn btn-black btn-md rounded full-width" %>
+    <%= f.button :submit, value: "Save translations", class: "btn btn-secondary btn-md rounded full-width" %>
   </div>
 <% end %>

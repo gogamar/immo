@@ -1,4 +1,5 @@
 class TitlesController < ApplicationController
+  include TranslateHelper
   before_action :set_title, only: %i[ show edit update destroy ]
 
   # GET /titles or /titles.json
@@ -25,33 +26,44 @@ class TitlesController < ApplicationController
   # POST /titles or /titles.json
   def create
     @title = Title.new(title_params)
-    @title.user = current_user
+    @title.assign_attributes(
+      bheader1_es: translate_string(@title.bheader1, "es"),
+      bheader1_en: translate_string(@title.bheader1, "en"),
+      bheader1_fr: translate_string(@title.bheader1, "fr")
+    )
     authorize @title
+    @title.save
 
-    respond_to do |format|
-      if @title.save
-        format.html { redirect_to title_url(@title), notice: "Title was successfully created." }
-        format.json { render :show, status: :created, location: @title }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @title.errors, status: :unprocessable_entity }
-      end
+    if @title.save
+      redirect_to edit_title_path(@title), notice: "Title was successfully saved and translated. Now you can retouch the translations if you want."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /titles/1 or /titles/1.json
   def update
     authorize @title
-    respond_to do |format|
-      if @title.update(title_params)
-        format.html { redirect_to title_url(@title), notice: "Title was successfully updated." }
-        format.json { render :show, status: :ok, location: @title }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @title.errors, status: :unprocessable_entity }
+      if params[:commit] == "Save translations"
+        new_text = params[:title][:bheader1]
+        @title.update(
+          bheader1: new_text,
+          bheader1_en: translate_string(new_text, "en"),
+          bheader1_es: translate_string(new_text, "es"),
+          bheader1_fr: translate_string(new_text, "fr")
+        )
+        if @title.save
+          redirect_to edit_title_path(@title), notice: "Translations successfully saved."
+        else
+          render :edit, status: :unprocessable_entity
+        end
+      elsif params[:commit] == "Save"
+        if @title.update(title_params)
+          redirect_to edit_title_path(@title), notice: "Title was successfully updated."
+        else
+          render :edit, status: :unprocessable_entity
+        end
       end
     end
-  end
 
   # DELETE /titles/1 or /titles/1.json
   def destroy
@@ -69,6 +81,8 @@ class TitlesController < ApplicationController
     def set_title
       @title = Title.find(params[:id])
     end
+
+
 
     # Only allow a list of trusted parameters through.
     def title_params

@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  require 'json'
   include TranslateHelper
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_post, only: %i[ show edit update destroy update_translations ]
@@ -30,7 +29,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.assign_attributes(content_en: translate_string(@post.content, "en"), content_es: translate_string(@post.content, "es"), content_fr: translate_string(@post.content, "fr"))
+    @post.assign_attributes(
+      content_en: translate_string(@post.content, "en"),
+      content_es: translate_string(@post.content, "es"),
+      content_fr: translate_string(@post.content, "fr")
+    )
     authorize @post
     @post.save
 
@@ -43,22 +46,21 @@ class PostsController < ApplicationController
 
   def update
   authorize @post
-  if params[:commit] == "Save translations"
-  new_text = params[:post][:content]
-  @post.update(content: new_text, content_en: translate_string(new_text, "en"), content_es: translate_string(new_text, "es"), content_fr: translate_string(new_text, "fr"))
-    if @post.save
-      redirect_to edit_post_path(@post), notice: "Translatiosn successfully saved."
-    else
-      render :edit, status: :unprocessable_entity
+    if params[:commit] == "Save translations"
+      new_text = params[:post][:content]
+      @post.update(content: new_text, content_en: translate_string(new_text, "en"), content_es: translate_string(new_text, "es"), content_fr: translate_string(new_text, "fr"))
+      if @post.save
+        redirect_to edit_post_path(@post), notice: "Translatiosn successfully saved."
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    elsif params[:commit] == "Save"
+      if @post.update(post_params)
+        redirect_to edit_post_path(@post), notice: "Post was successfully updated."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
-
-  elsif params[:commit] == "Save"
-    if @post.update(post_params)
-      redirect_to edit_post_path(@post), notice: "Post was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
   end
 
   # DELETE /posts/1 or /posts/1.json
