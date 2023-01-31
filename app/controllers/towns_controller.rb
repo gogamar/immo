@@ -8,20 +8,24 @@ class TownsController < ApplicationController
 
   # GET /towns/1 or /towns/1.json
   def show
+    authorize @town
   end
 
   # GET /towns/new
   def new
     @town = Town.new
+    authorize @town
   end
 
   # GET /towns/1/edit
   def edit
+    authorize @town
   end
 
   # POST /towns or /towns.json
   def create
     @town = Town.new(town_params)
+    authorize @town
 
     respond_to do |format|
       if @town.save
@@ -36,6 +40,7 @@ class TownsController < ApplicationController
 
   # PATCH/PUT /towns/1 or /towns/1.json
   def update
+    authorize @town
     respond_to do |format|
       if @town.update(town_params)
         format.html { redirect_to town_url(@town), notice: "Town was successfully updated." }
@@ -49,6 +54,7 @@ class TownsController < ApplicationController
 
   # DELETE /towns/1 or /towns/1.json
   def destroy
+    authorize @town
     @town.destroy
 
     respond_to do |format|
