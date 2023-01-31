@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   require 'json'
+  include TranslateHelper
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_post, only: %i[ show edit update destroy update_translations ]
 
@@ -24,47 +25,40 @@ class PostsController < ApplicationController
 
   def edit
     authorize @post
-    # @content_es = @post.content_es || @translation_es
-    # @content_en = @post.content_en || @translation_en
-    # @content_fr = @post.content_fr || @translation_fr
-    @translation_es = @post.translate_to_es
-    @translation_en = @post.translate_to_en
-    @translation_fr = @post.translate_to_fr
   end
-
-  def update_translations
-    authorize @post
-    # @post.update!(content_es: translation_es, content_en: translation_en, content_fr: translation_fr)
-    if @post.update(post_params)
-      flash[:success] = "Translations successfully updated."
-      redirect_to edit_post_path(@post)
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.assign_attributes(content_en: translate_string(@post.content, "en"), content_es: translate_string(@post.content, "es"), content_fr: translate_string(@post.content, "fr"))
     authorize @post
+    @post.save
 
     if @post.save
-      flash[:success] = "Post was successfully created."
-      redirect_to post_path(@post)
+      redirect_to edit_post_path(@post), notice: "Post was successfully saved and translated. Now you can retouch the translations if you want."
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def update
-    authorize @post
-    if @post.update(post_params)
-      flash[:success] = "Post was successfully updated."
-      redirect_to post_path(@post)
+  authorize @post
+  if params[:commit] == "Save translations"
+  new_text = params[:post][:content]
+  @post.update(content: new_text, content_en: translate_string(new_text, "en"), content_es: translate_string(new_text, "es"), content_fr: translate_string(new_text, "fr"))
+    if @post.save
+      redirect_to edit_post_path(@post), notice: "Translatiosn successfully saved."
     else
       render :edit, status: :unprocessable_entity
     end
+
+  elsif params[:commit] == "Save"
+    if @post.update(post_params)
+      redirect_to edit_post_path(@post), notice: "Post was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
   end
 
   # DELETE /posts/1 or /posts/1.json
@@ -75,13 +69,13 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:title, :author, :content, :content_es, :content_fr, :content_en, :photo, :category_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:title, :author, :content, :content_es, :content_fr, :content_en, :photo, :category_id)
+  end
 end

@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h2 class="ipt-title">Panel de control</h2>
+        <h2 class="ipt-title">Panell de control</h2>
         <span class="ipn-subtitle">El teu espai</span>
       </div>
     </div>
@@ -47,16 +47,21 @@
                       <i class="fas fa-unlock-alt"></i> Canviar contrasenya
                     <% end %>
                   </li>
-                  <% if current_user.admin? %>
+                  <li>
+                    <a href="#interested-owners"><i class="fas fa-laptop-house"></i> Propietaris interessats</a>
+                  </li>
+                  <li>
+                    <%= link_to edit_title_path(@title) do %>
+                      <i class="fas fa-tasks"></i> Modificar texts/banner
+                    <% end %>
+                  </li>
+                  <% if user_signed_in? && current_user.admin? %>
                     <li>
                       <%= link_to sidekiq_web_path, target: "_blank" do %>
                         <i class="fas fa-network-wired"></i> Sidekiq
                       <% end %>
                     </li>
                   <% end %>
-                  <li>
-                    <a href="#interested-owners"><i class="fas fa-laptop-house"></i> Propietaris interessats</a>
-                  </li>
                 </ul>
               </div>
             </div>

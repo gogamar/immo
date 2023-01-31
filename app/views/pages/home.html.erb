@@ -2,14 +2,15 @@
 <div class="hero-banner video-banner">
   <div class="overlay"></div>
   <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="https://res.cloudinary.com/dlzusxobf/video/upload/v1671547748/Verde_Playas_Viajes_y_Eventos_Cierre_Vi%CC%81deo_de_YouTube_swjmew.mp4" type="video/mp4">
+    <source src="<%= cl_video_path @title.video.key, height: 300, crop: :fill %>" type="video/mp4">
   </video>
+  <%= cl_image_path @title.video.key, height: 300, crop: :fill %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-9 col-md-11 col-sm-12">
         <div class="inner-banner-text text-center">
-          <p class="lead-i text-white">Cerca propietats en venda i lloguer a Catalunya <span class="badge badge-success">Veure tot</span></p>
-          <h2><span class="font-normal text-white">Troba la casa</span> <span data-controller="typed-js"></span></h2>
+          <p class="lead-i text-white"><%= @title.bheader1 %> <span class="badge badge-success"><%= @title.bbutton %></span></p>
+          <h2><span class="font-normal text-white"><%= @title.bheader2 %></span> <span data-controller="typed-js" data-typed-js-typedtext-value="<%= @typedtext %>"></span></h2>
         </div>
         <div class="full-search-2 eclip-search italian-search hero-search-radius shadow-hard mt-5">
           <div class="hero-search-content">

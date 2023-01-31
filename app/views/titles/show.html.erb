@@ -1,0 +1,6 @@
+<% if user_signed_in? && current_user.admin? %>
+  <div class="d-flex justify-content-end">
+    <%= link_to "Editar títols i subtitols", edit_title_path(@title), class: "btn btn-primary" %> |
+  </div>
+<% end %>
+<%= render @title %>

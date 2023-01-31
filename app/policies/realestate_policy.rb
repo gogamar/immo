@@ -24,6 +24,7 @@ class RealestatePolicy < ApplicationPolicy
     return update?
   end
 
+
   def update?
     user.admin?
   end

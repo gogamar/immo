@@ -1,17 +1,18 @@
-
-<%= simple_form_for(@homepage) do |f| %>
+<%= simple_form_for(@title) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs">
+    <%= f.input :video, as: :file %>
     <%= f.input :bheader1 %>
+    <%= f.input :bheader1_es %>
+    <%= f.input :bheader1_en %>
+    <%= f.input :bheader1_fr %>
     <%= f.input :bheader2 %>
     <%= f.input :bdheader1 %>
     <%= f.input :bdheader2 %>
     <%= f.input :bbutton %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, label: "Actualitzar", class: "btn btn-black btn-md rounded full-width" %>
   </div>
 <% end %>

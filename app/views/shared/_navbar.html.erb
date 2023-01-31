@@ -47,7 +47,7 @@
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Editar el compte", edit_user_registration_path, class: "dropdown-item" %>
-                <a href="/control-panel" class="dropdown-item">Panel de control</a>
+                <%= link_to "Panell de control", dashboard_path, class: "dropdown-item" %>
                 <a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#logout" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Tancar sessió</a>
               </div>
             </li>

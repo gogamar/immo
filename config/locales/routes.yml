@@ -9,7 +9,7 @@ es:
     sign_in: entrar
     sign_up: registrar-se
     password: contrasena
-    homepages: portadas
+    titles: títols
     webrealestates: agregar-inmueble
     images: foto-urls
     contacts: contactos
@@ -26,7 +26,7 @@ es:
     about-us: sobre-nosotros
     contact: contacto
     vacation-rentals: alquiler-turistico
-    dashboard: panel de control
+    dashboard: panel-de-control
     thank-you: gracias
     translations: traducciones
 ca:
@@ -54,6 +54,6 @@ ca:
     about-us: sobre-nosaltres
     contact: contacte
     vacation-rentals: lloguer-turistic
-    dashboard: panel de control
+    dashboard: panell-de-control
     thank-you: gracies
     translations: traduccions

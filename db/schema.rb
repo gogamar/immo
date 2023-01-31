@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_082919) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_30_114652) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -77,16 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_082919) do
     t.index ["realestate_id"], name: "index_features_on_realestate_id"
   end
 
-  create_table "homepages", force: :cascade do |t|
-    t.string "bheader1"
-    t.string "bheader2"
-    t.string "bdheader1"
-    t.string "bdheader2"
-    t.string "bbutton"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -105,8 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_082919) do
     t.bigint "category_id"
     t.bigint "user_id"
     t.text "content_es"
-    t.string "content_fr"
-    t.string "content_en"
+    t.text "content_fr"
+    t.text "content_en"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -153,6 +143,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_082919) do
     t.datetime "updated_at", null: false
     t.string "author"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string "bheader1"
+    t.string "bheader2"
+    t.string "bdheader1"
+    t.string "bdheader2"
+    t.string "bbutton"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "bheader1_es"
+    t.string "bheader1_en"
+    t.string "bheader1_fr"
   end
 
   create_table "towns", force: :cascade do |t|
