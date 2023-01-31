@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <h2 class="ipt-title">Noticia</h2>
-        <span class="ipn-subtitle"><%= @post.title %></span>
+        <span class="ipn-subtitle"><%= @post.title_ca %></span>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
         <div class="blog-details single-post-item format-standard">
           <div class="post-details">
             <div class="post-featured-img">
-              <%= cl_image_tag @post.photo.key, width: 700, height: 500, crop: :fill, class: "img-fluid", alt: "#{@post.title}" if @post.photo.key.present?  %>
+              <%= cl_image_tag @post.photo.key, width: 700, height: 500, crop: :fill, class: "img-fluid", alt: "#{@post.title_ca}" if @post.photo.key.present?  %>
             </div>
             <div class="post-top-meta">
               <ul class="meta-comment-tag">
@@ -35,8 +35,8 @@
                 <li><%# button_to "Destroy this post", @post, method: :delete, class: "link" %></li>
               </ul>
             </div>
-            <h2 class="post-title"> <%= @post.title %> </h2>
-            <p> <%= sanitize @post.content %> </p>
+            <h2 class="post-title"> <%= @post.title_ca %> </h2>
+            <p> <%= sanitize @post.content_ca %> </p>
             <div class="post-bottom-meta">
               <div class="post-tags">
                 <ul class="list">
@@ -47,7 +47,7 @@
               <div class="post-share">
                 <h4 class="pbm-title">Compartir</h4>
                 <ul class="list">
-                  <%= social_share_button_tag(@post.title, :url => "#{request.original_url}") %>
+                  <%= social_share_button_tag(@post.title_ca, :url => "#{request.original_url}") %>
                 </ul>
               </div>
             </div>
@@ -223,7 +223,7 @@
             <h3 class="pa-name"><%= @post.user.first_name if @post.user.first_name %> <%= @post.user.last_name if @post.user.last_name %></h3>
             <span>Agent especialitzat en Costa Brava</span>
             <ul class="social-links">
-              <%= social_share_button_tag(@post.title, :url => "#{request.original_url}") %>
+              <%= social_share_button_tag(@post.title_ca, :url => "#{request.original_url}") %>
             </ul>
             <p class="pa-text">El nostre equip de professionals està altament capacitat i sempre  disposat a ajudar a trobar el lloc perfecte per a casa o negoci. Contacta'ns avui mateix per obtenir més informació i programar una visita!</p>
           </div>
@@ -247,10 +247,10 @@
             <% @posts.each do |post| %>
               <li>
                 <span class="left">
-                  <%= cl_image_tag post.photo.key, crop: :fill, class: "img-fluid", alt: "#{@post.title}" if @post.photo.key.present?  %>
+                  <%= cl_image_tag post.photo.key, crop: :fill, class: "img-fluid", alt: "#{@post.title_ca}" if @post.photo.key.present?  %>
                 </span>
                 <span class="right">
-                  <%= link_to post.title.truncate(45), post, class: "feed-title" %>
+                  <%= link_to post.title_ca.truncate(45), post, class: "feed-title" %>
                   <span class="post-date"><i class="far fa-calendar-check"></i></i>Fa <%= Time.now.hour - post.updated_at.hour %> hores</span>
               </span>
             </li>

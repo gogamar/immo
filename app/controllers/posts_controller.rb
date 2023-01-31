@@ -30,9 +30,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.assign_attributes(
-      content_en: translate_string(@post.content, "en"),
-      content_es: translate_string(@post.content, "es"),
-      content_fr: translate_string(@post.content, "fr")
+      content_en: translate_string(@post.content_ca, "en"),
+      content_es: translate_string(@post.content_ca, "es"),
+      content_fr: translate_string(@post.content_ca, "fr")
     )
     authorize @post
     @post.save
@@ -78,6 +78,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :author, :content, :content_es, :content_fr, :content_en, :photo, :category_id)
+    params.require(:post).permit(:title_ca, :author, :content, :content_es, :content_fr, :content_en, :photo, :category_id)
   end
 end

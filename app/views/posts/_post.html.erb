@@ -3,7 +3,7 @@
   <div class="blog-wrap-grid">
     <div class="blog-thumb">
       <%= link_to post do %>
-        <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid", alt: "#{post.title}" if post.photo.key.present? %>
+        <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid", alt: "#{post.title_ca}" if post.photo.key.present? %>
       <% end %>
     </div>
     <div class="blog-info">
@@ -11,10 +11,10 @@
     </div>
     <div class="blog-body">
       <h4 class="bl-title">
-        <%= link_to post.title, post %>
+        <%= link_to post.title_ca, post %>
       </h4>
       <%= link_to post do %>
-        <p> <%= sanitize (post.content.truncate(200)) %> </p>
+        <p> <%= sanitize (post.content_ca.truncate(200)) %> </p>
       <% end %>
       <%= link_to "Llegir més", post, class: "bl-continue" %>
     </div>

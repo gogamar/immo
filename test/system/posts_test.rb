@@ -15,8 +15,8 @@ class PostsTest < ApplicationSystemTestCase
     click_on "New post"
 
     fill_in "Author", with: @post.author
-    fill_in "Content", with: @post.content
-    fill_in "Title", with: @post.title
+    fill_in "Content", with: @post.content_ca
+    fill_in "Title", with: @post.title_ca
     click_on "Create Post"
 
     assert_text "Post was successfully created"
@@ -28,8 +28,8 @@ class PostsTest < ApplicationSystemTestCase
     click_on "Edit this post", match: :first
 
     fill_in "Author", with: @post.author
-    fill_in "Content", with: @post.content
-    fill_in "Title", with: @post.title
+    fill_in "Content", with: @post.content_ca
+    fill_in "Title", with: @post.title_ca
     click_on "Update Post"
 
     assert_text "Post was successfully updated"

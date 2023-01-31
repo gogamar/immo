@@ -20,6 +20,6 @@ def create
 end
 
 def contact_params
-  params.require(:post).permit(:title, :author, :content, :photo, :category_id)
+  params.require(:post).permit(:title_ca, :author, :content, :photo, :category_id)
 end
 end
