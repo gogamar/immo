@@ -247,7 +247,7 @@
             <% @posts.each do |post| %>
               <li>
                 <span class="left">
-                  <%= cl_image_tag post.photo.key, crop: :fill, class: "img-fluid", alt: "#{@post.title_ca}" if @post.photo.key.present?  %>
+                  <%= cl_image_tag post.photo.key, crop: :fill, class: "img-fluid", alt: "#{post.title_ca}" if post.photo.key.present?  %>
                 </span>
                 <span class="right">
                   <%= link_to post.title_ca.truncate(45), post, class: "feed-title" %>
