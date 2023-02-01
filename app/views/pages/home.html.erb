@@ -1,10 +1,9 @@
 <!-- ============================ Hero Banner  Start================================== -->
 <div class="hero-banner video-banner">
   <div class="overlay"></div>
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" alt="Sistach Finques">
     <source src="<%= cl_video_path @title.video.key, height: 300, crop: :fill %>" type="video/mp4">
   </video>
-  <%= cl_image_path @title.video.key, height: 300, crop: :fill %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-9 col-md-11 col-sm-12">
