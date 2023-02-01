@@ -5,8 +5,6 @@ export default class extends Controller {
   static values = { typedtext: Array }
 
   connect() {
-    console.log("Typed.")
-    console.log(this.typedtextValue)
     new Typed(this.element, {
       strings: this.typedtextValue,
       loop: true,
