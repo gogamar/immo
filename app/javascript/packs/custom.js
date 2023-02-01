@@ -1,6 +1,11 @@
 $(function () {
   "use strict";
 
+  // $(window).on("load", function () {
+  //   $("#preloader").delay(350).fadeOut("slow");
+  //   $("body").delay(350).css({ overflow: "visible" });
+  // }, { passive: true });
+
   // Advance Single Slider
   $(function () {
     // Card's slider
@@ -29,7 +34,7 @@ $(function () {
           enabled: true,
           navigateByImgClick: true,
           tCounter: '<span class="mfp-counter">%curr% из %total%</span>', // markup of counte
-          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+          // preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
         },
         zoom: {
           enabled: true,

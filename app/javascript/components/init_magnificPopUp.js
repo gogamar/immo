@@ -8,7 +8,7 @@ const initMagnificPopUp = () => {
     fixedBgPos: true,
     overflowY: "auto",
     closeBtnInside: false,
-    preloader: true,
+    // preloader: true,
     removalDelay: 0,
     mainClass: "mfp-fade",
     gallery: {

@@ -24,7 +24,8 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
+
 
   $(".click").slick({
     slidesToShow: 1,
@@ -32,7 +33,7 @@ const initSlick = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     arrows: true,
-  });
+  }, { passive: true });
   // Featured Slick Slider
   $(".featured-slick-slide").slick({
     centerMode: true,
@@ -58,7 +59,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
   // smart-textimonials
   $("#smart-textimonials").slick({
     slidesToShow: 3,
@@ -81,7 +82,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
 
   // Property Slide
   $(".property-slide").slick({
@@ -105,7 +106,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
 
   // Single Property Slide
   $(".single-advance-property").slick({
@@ -134,7 +135,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
 
   // location Slide
   $(".location-slide").slick({
@@ -158,7 +159,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
 
   // Property Slide
   $(".team-slide").slick({
@@ -190,7 +191,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
 
   // Featured Slick Slider
   $(".featured_slick_gallery").slick({
@@ -218,7 +219,7 @@ const initSlick = () => {
         },
       },
     ],
-  });
+  }, { passive: true });
 
 
 
@@ -231,7 +232,7 @@ const initSlick = () => {
     fade: true,
     dots: true,
     autoplaySpeed: 4000,
-  });
+  }, { passive: true });
 };
 
 export { initSlick };

@@ -6,16 +6,16 @@ import "bootstrap";
 
 // import "./packs/jquery.magnific-popup";
 import { initSelect2 } from "./components/init_select2";
-import { initIonRangeSlider } from "./components/init_ionRangeSlider.js";
+// // import { initIonRangeSlider } from "./components/init_ionRangeSlider.js";
 import { initSlick } from "./components/init_slick";
 import { initMagnificPopUp } from "./components/init_magnificPopUp";
 
 document.addEventListener("turbo:load", function () {
   initSelect2();
-  initIonRangeSlider();
+  // initIonRangeSlider();
   initSlick();
   initMagnificPopUp();
 });
 
 import "./packs/custom";
-import "./packs/slider-bg";
+// import "./packs/slider-bg";
